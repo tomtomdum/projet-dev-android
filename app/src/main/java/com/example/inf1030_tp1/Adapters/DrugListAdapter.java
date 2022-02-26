@@ -75,7 +75,9 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
             else {
                 String filterString = charSequence.toString().toLowerCase().trim();
                 for( Drug drug: drugListCopy) {
-                    if(drug.getName().toLowerCase().contains(filterString));
+                    if(drug.getName().toLowerCase().contains(filterString)){
+                        filteredList.add(drug);
+                    };
                 }
             }
 
