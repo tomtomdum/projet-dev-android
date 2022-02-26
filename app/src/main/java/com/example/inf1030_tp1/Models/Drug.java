@@ -9,6 +9,11 @@ public class Drug {
     private String name;
     private String description;
 
+    public Drug(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public long getId() {
         return id;
     }
