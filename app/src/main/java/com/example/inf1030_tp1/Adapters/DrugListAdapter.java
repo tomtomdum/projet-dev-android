@@ -64,33 +64,36 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
         return filter;
     }
 
+    /**
+     * Recois le texte de la barre de recherche et filtre la liste, ensuite il affiche la nouvelle
+     * liste
+     */
     private Filter filter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
-            List<Drug> filteredList = new ArrayList<>();
+            List<Drug> drugListFiltered = new ArrayList<>();
 
             if (charSequence == null || charSequence.length() == 0){
-                filteredList.addAll(drugListCopy);
+                drugListFiltered.addAll(drugListCopy);
             }
             else {
                 String filterString = charSequence.toString().toLowerCase().trim();
                 for( Drug drug: drugListCopy) {
                     if(drug.getName().toLowerCase().contains(filterString)){
-                        filteredList.add(drug);
-                    };
+                        drugListFiltered.add(drug);
+                    }
                 }
             }
-
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
+            FilterResults resultsFromSearch = new FilterResults();
+            resultsFromSearch.values = drugListFiltered;
+            return resultsFromSearch;
         }
 
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             drugList.clear();
             drugList.addAll((List) filterResults.values);
-            notifyDataSetChanged();
+            notifyDataSetChanged();// for lactualisation de la liste
         }
     };
 
