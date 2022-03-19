@@ -25,7 +25,7 @@ public class ClientRepository {
     }
 
     public LiveData<List<Client>> getAllClients() {
-        if(clients != null){
+        if(clients == null){
             clients = clientDao.getAll();
         }
         return clients;
@@ -35,14 +35,14 @@ public class ClientRepository {
         return clientDao.get(id);
     }
 
-    public void insert(Client... client){
+    public void insert(Client... clients){
         // todo create a callback to inform the user if it worked or not
-        clientDao.insert(client);
+        clientDao.insert(clients);
     }
 
-    public void delete(Client... client){
+    public void delete(Client... clients){
         // todo create a callback to inform the user if it worked or not
-        clientDao.delete((client));
+        clientDao.delete((clients));
     }
 
 }

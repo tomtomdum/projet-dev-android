@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Inf1030tp1">
         <activity
-            android:name=".activities.DrugListActivity"
+            android:name=".Activities.DrugListActivity"
             android:exported="false" />
         <activity
 
-            android:name=".activities.LoginPageActivity"
+            android:name=".Activities.LoginPageActivity"
             android:exported="true">
 
             <intent-filter>

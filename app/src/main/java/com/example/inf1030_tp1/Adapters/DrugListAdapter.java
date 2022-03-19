@@ -2,6 +2,7 @@ package com.example.inf1030_tp1.Adapters;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -23,13 +24,37 @@ import java.util.Locale;
 public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHolder> implements Filterable {
     private ArrayList<Drug> drugList = new ArrayList<>();
     private ArrayList<Drug> drugListCopy; // copie de la liste originale, utilisee pour filtrer le resutlat de recherche
+    private Consumer<Drug> consumer;
 
     private LayoutInflater inflater;
 
-    public DrugListAdapter(Context context, ArrayList list){
+    public DrugListAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
         this.inflater = LayoutInflater.from(context);
         this.drugList = list;
         drugListCopy = new ArrayList<>(list);
+        this.consumer = consumer;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView description;
+        TextView drugName;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            itemView.setOnClickListener(listener -> {
+                new Consumer() {
+                    @Override
+                    public void accept(Object o) {
+
+                    }
+                };
+            });
+
+            drugName = (TextView) itemView.findViewById(R.id.nom_item);
+            description = (TextView) itemView.findViewById(R.id.description);
+
+        }
     }
 
     // inflates the row layout from xml when needed
@@ -52,6 +77,9 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
         viewHolder.description.setText(drugList.get(position).getDescription());
         viewHolder.drugName.setText(drugList.get(position).getName());
 
+        viewHolder.itemView.setOnClickListener(listener -> {
+            consumer.accept(drugList.get(position));
+        });
     }
 
     @Override
@@ -96,53 +124,4 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
             notifyDataSetChanged();// for lactualisation de la liste
         }
     };
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView description;
-        TextView drugName;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-//                    showPopup(view);
-                }
-            });
-
-            drugName = (TextView) itemView.findViewById(R.id.nom_item);
-            description = (TextView) itemView.findViewById(R.id.description);
-
-        }
-
-//        public void showPopup(View view) {
-//            PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
-//            popupMenu.setOnMenuItemClickListener(this);
-//            popupMenu.inflate(R.menu.context_menu_recycler_view);
-//            popupMenu.show();
-//        }
-
-//
-//        @Override
-//        public boolean onMenuItemClick(MenuItem menuItem) {
-//            switch (menuItem.getItemId()) {
-//                case R.id.options_add:
-//                    for (long i =0; i<999; i++){
-//                        drugList.add(new Drug("pormme", "ses bons quand ses pas trop surettaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-//                        notifyDataSetChanged();
-//                    }
-//                    return true;
-//
-//                case R.id.options_remove:
-//                    drugList.remove(getPosition());
-//                    notifyDataSetChanged();
-//
-//                    return true;
-//
-//                default:
-//                    return false;
-//            }
-//        }
-    }
 }

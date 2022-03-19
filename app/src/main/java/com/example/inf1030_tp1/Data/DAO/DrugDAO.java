@@ -16,11 +16,11 @@ import java.util.List;
 @Dao
 public interface DrugDAO {
 
-    @Query("SELECT * FROM client")
-    LiveData<List<Client>> getall();
+    @Query("SELECT * FROM drug")
+    LiveData<List<Drug>> getAll();
 
-    @Query("SELECT * FROM client WHERE id = :id")
-    LiveData<Client> get(long id);
+    @Query("SELECT * FROM drug WHERE id = :id")
+    LiveData<Drug> get(long id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Drug... drugs);

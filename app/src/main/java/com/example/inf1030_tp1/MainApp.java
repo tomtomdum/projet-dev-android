@@ -8,11 +8,14 @@ import androidx.multidex.MultiDexApplication;
 import com.example.inf1030_tp1.Data.Database.Db;
 
 import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainApp extends MultiDexApplication {
 
     // todo finish implementation
     private Db db;
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     @Override
     public void onCreate() {
@@ -26,5 +29,10 @@ public class MainApp extends MultiDexApplication {
 //        subscribe();
 
     }
+
     public Db getDb() { return db; }
+
+    public void dbPost(Runnable dbTask) {
+        executorService.submit(dbTask);
+    }
 }
