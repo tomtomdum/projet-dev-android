@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:background="@color/primary"
-    tools:context=".frgagments.welcome.WelcomeFragment">
+    tools:context=".fragments.welcome.WelcomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

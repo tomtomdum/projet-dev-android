@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/item_radius_order"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/item_margin"
+    android:layout_marginRight="@dimen/item_margin"
+    android:layout_marginBottom="@dimen/item_bottom"
+    android:padding="@dimen/et_padding">
+    <TextView
+        android:id="@+id/order_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ORDER"
+        android:textSize="@dimen/tv_title_3_size"
+        android:textStyle="bold"
+        android:textColor="@color/dark_blue"/>
+</LinearLayout>

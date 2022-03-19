@@ -6,7 +6,7 @@
     android:gravity="center"
     android:background="@color/primary"
     android:orientation="vertical"
-    tools:context=".frgagments.welcome.TypeUserFragment">
+    tools:context=".fragments.welcome.TypeUserFragment">
 
     <TextView
         android:layout_width="@dimen/tv_title_1_width"

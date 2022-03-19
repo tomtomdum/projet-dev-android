@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/et_paddingLeftRight"
     android:paddingRight="@dimen/et_paddingLeftRight"
     android:orientation="vertical"
-    tools:context=".frgagments.LoginFragment">
+    tools:context=".fragments.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

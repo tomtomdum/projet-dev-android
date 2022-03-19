@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.databinding.ActivityWelcomeBinding;
-import com.example.inf1030_tp1.frgagments.welcome.WelcomeFragment;
+import com.example.inf1030_tp1.fragments.welcome.WelcomeFragment;
 
 public class WelcomeActivity extends AppCompatActivity {
     private ActivityWelcomeBinding binding;
