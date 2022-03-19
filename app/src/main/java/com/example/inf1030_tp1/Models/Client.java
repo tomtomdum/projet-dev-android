@@ -16,11 +16,13 @@ public class Client {
         return id;
     }
 
-    public String getfName() {
+    public void setId(long id) { this.id = id; }
+
+    public String getFName() {
         return fName;
     }
 
-    public void setfName(String fName) {
+    public void setFName(String fName) {
         this.fName = fName;
     }
 

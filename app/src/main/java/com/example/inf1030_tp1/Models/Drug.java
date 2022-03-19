@@ -1,7 +1,9 @@
 package com.example.inf1030_tp1.Models;
 
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+@Entity
 public class Drug {
 
     @PrimaryKey(autoGenerate = true)
@@ -13,10 +15,12 @@ public class Drug {
         this.name = name;
         this.description = description;
     }
+    public void setId(long id) { this.id = id; }
 
     public long getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
