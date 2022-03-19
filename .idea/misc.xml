@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/button_radius_primary_color.xml" value="0.1" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/edit_text_radius.xml" value="0.1" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
-        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/activity_welcome.xml" value="0.1" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/activity_welcome.xml" value="0.22" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/fragment_login.xml" value="0.16666666666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1795" />
         <entry key="app/src/main/res/layout/activity_drug_list.xml" value="0.3546195652173913" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.3546195652173913" />
