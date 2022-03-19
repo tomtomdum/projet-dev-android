@@ -5,9 +5,24 @@
     android:layout_height="match_parent">
 
     <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/map"
+        android:icon="@drawable/ic_map"
+        android:iconTint="@color/white"
+        android:title="Map"
+        app:showAsAction="never"
+        />
+
+    <item
         android:id="@+id/menu_profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile"
         app:showAsAction="never"
         />
+
 </menu>

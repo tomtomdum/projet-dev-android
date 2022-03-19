@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Inf1030tp1">
         <activity
+            android:name=".activities.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.LoginActivity"
             android:exported="false" />
         <activity

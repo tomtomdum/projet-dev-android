@@ -8,7 +8,7 @@
     <dimen name="tv_title_3_width">273dp</dimen>
 
     <dimen name="tv_title_1_size">48sp</dimen>
-    <dimen name="tv_title_2_size">48sp</dimen>
+    <dimen name="tv_title_2_size">30sp</dimen>
     <dimen name="tv_title_3_size">20sp</dimen>
 
     <dimen name="tv_welcome_marginTop">86dp</dimen>
