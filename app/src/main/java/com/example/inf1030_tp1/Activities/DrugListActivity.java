@@ -2,8 +2,6 @@ package com.example.inf1030_tp1.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,54 +9,69 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.inf1030_tp1.Adapters.DrugListAdapter;
-import com.example.inf1030_tp1.Data.Repo.DrugRepository;
 import com.example.inf1030_tp1.MainApp;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.ViewModels.DrugListViewModel;
 import com.example.inf1030_tp1.databinding.ActivityDrugListBinding;
 
 import java.util.ArrayList;
 
 public class DrugListActivity extends AppCompatActivity {
     //TODO: va falloir utiliser les elements quont get de la base de donnees
-    ArrayList<Drug> drugList = new ArrayList<>();
-    DrugListAdapter adapter;
+    private ArrayList<Drug> drugList = new ArrayList<>();
+    private ArrayList<Drug> drugListTest = new ArrayList<>();
+    private DrugListAdapter adapter;
     private ActivityDrugListBinding binder;
     private Button addDrugTestButton;
-    private DrugRepository drugRepository;
+    private DrugListViewModel viewModel;
     private MainApp app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binder = DataBindingUtil.setContentView(this,R.layout.activity_drug_list);
-        setContentView(binder.getRoot());
+        app = (MainApp) getApplicationContext();
 
-//        app =  new MainApp(); // todo regler le probleme ici (faut pas que ca soit instancie comme ca)
-//        drugRepository = new DrugRepository(app);
+        RecyclerView recyclerView = findViewById(binder.recyclerViewDrugList.getId());
 
+        drugListTest = new ArrayList<>();
         populateList();
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view_drug_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new DrugListAdapter(this, drugList, drug -> {
-            Log.i("info", "This is a test "+drug);
-            //Todo implementer une action faisant la selection
+//        DrugListAdapter drugListAdapter = new DrugListAdapter(this, drugListTest, drug -> {});
+//        recyclerView.setAdapter(drugListAdapter);
+
+        viewModel = new ViewModelProvider(this).get(DrugListViewModel.class);
+        viewModel.liveAll().observe(this, drugs -> {
+            adapter = new DrugListAdapter(this, drugList, drug -> {
+                Log.i("info", "This is a test "+drug);
+                //Todo implementer une action faisant la selection
+            });
+            recyclerView.setAdapter(adapter);
         });
-        recyclerView.setAdapter(adapter);
 
         addDrugTestButton = binder.testButton;
-        addDrugTestButton.setOnClickListener(click -> {
-            for (Drug drug : drugList) { drugRepository.insert(drug); }
+        addDrugTestButton.setOnClickListener(view -> {
+            for (Drug drug : drugListTest) {
+                viewModel.save(drug, ()->{
+
+                });
+            }
+//            drugListTest.forEach(drug -> viewModel.save(drug, () -> {}));
         });
     }
 
     private void populateList(){
         for (int i =0; i<4; i++){
-            drugList.add(new Drug("pillule" + i, "goute pas bon"));
+            drugListTest.add(new Drug("pillule" + i, "goute pas bon"));
         }
     }
 

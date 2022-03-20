@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Dao
-public interface DrugDAO {
+public interface DrugDao {
 
     @Query("SELECT * FROM drug")
     LiveData<List<Drug>> getAll();
@@ -23,7 +23,7 @@ public interface DrugDAO {
     LiveData<Drug> get(long id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Drug... drugs);
+    void insert(Drug drug);
 
     @Delete
     void delete(Drug... drugs);
