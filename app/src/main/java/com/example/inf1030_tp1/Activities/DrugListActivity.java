@@ -52,7 +52,7 @@ public class DrugListActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(DrugListViewModel.class);
         viewModel.liveAll().observe(this, drugs -> {
             adapter = new DrugListAdapter(this, drugList, drug -> {
-                Log.i("info", "This is a test "+drug);
+//                Log.i("info", "This is a test "+drug);
                 //Todo implementer une action faisant la selection
             });
             recyclerView.setAdapter(adapter);
@@ -62,7 +62,7 @@ public class DrugListActivity extends AppCompatActivity {
         addDrugTestButton.setOnClickListener(view -> {
             for (Drug drug : drugListTest) {
                 viewModel.save(drug, ()->{
-
+                    Log.i("info", "the drug "+ drug.toString());
                 });
             }
 //            drugListTest.forEach(drug -> viewModel.save(drug, () -> {}));
@@ -71,7 +71,10 @@ public class DrugListActivity extends AppCompatActivity {
 
     private void populateList(){
         for (int i =0; i<4; i++){
-            drugListTest.add(new Drug("pillule" + i, "goute pas bon"));
+            Drug drug = new Drug();
+            drug.setDescription("graasdf");
+            drug.setName("pillule "+i);
+            drugListTest.add(drug);
         }
     }
 

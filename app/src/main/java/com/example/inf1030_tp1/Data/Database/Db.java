@@ -33,7 +33,9 @@ public abstract class Db extends RoomDatabase {
                 context.getApplicationContext(),
                 Db.class,
                 "pharma-database"
-                ).build();
+                )
+//                .fallbackToDestructiveMigration()
+                .build();
         return instance;
     }
 }

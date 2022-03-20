@@ -1,23 +1,27 @@
 package com.example.inf1030_tp1.Models;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.util.UUID;
 
 @Entity
 public class Drug {
 
-    @PrimaryKey(autoGenerate = true)
-    private long id;
+    @NonNull
+    @PrimaryKey
+    private String id;
     private String name;
     private String description;
 
-    public Drug(String name, String description) {
-        this.name = name;
-        this.description = description;
+    public Drug() {
+        super();
+        id = UUID.randomUUID().toString();
     }
-    public void setId(long id) { this.id = id; }
+    public void setId(String id) { this.id = id; }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 

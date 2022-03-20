@@ -41,6 +41,7 @@ public class DrugRepository {
         Thread t = new Thread(() -> {
            drugDao.insert(drug);
             Log.i("info", "TABARNAQUEEEEEEE");
+            Log.i("info", "This is a test "+drug.getId());
         });
         t.start();
 //        app.dbPost(() -> {
