@@ -9,18 +9,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.inf1030_tp1.Adapters.DrugListAdapter;
+import com.example.inf1030_tp1.Adapters.DrugAdapter;
 import com.example.inf1030_tp1.MainApp;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
-import com.example.inf1030_tp1.ViewModels.DrugListViewModel;
+import com.example.inf1030_tp1.ViewModels.DrugViewModel;
 import com.example.inf1030_tp1.databinding.ActivityDrugListBinding;
 
 import java.util.ArrayList;
@@ -29,10 +27,10 @@ public class DrugListActivity extends AppCompatActivity {
     //TODO: va falloir utiliser les elements quont get de la base de donnees
     private ArrayList<Drug> drugList = new ArrayList<>();
     private ArrayList<Drug> drugListTest = new ArrayList<>();
-    private DrugListAdapter adapter;
+    private DrugAdapter adapter;
     private ActivityDrugListBinding binder;
     private Button addDrugTestButton;
-    private DrugListViewModel viewModel;
+    private DrugViewModel viewModel;
     private MainApp app;
 
     @Override
@@ -46,13 +44,9 @@ public class DrugListActivity extends AppCompatActivity {
         drugListTest = new ArrayList<>();
         populateList();
 
-//        DrugListAdapter drugListAdapter = new DrugListAdapter(this, drugListTest, drug -> {});
-//        recyclerView.setAdapter(drugListAdapter);
-
-        viewModel = new ViewModelProvider(this).get(DrugListViewModel.class);
+        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
         viewModel.liveAll().observe(this, drugs -> {
-            adapter = new DrugListAdapter(this, drugList, drug -> {
-//                Log.i("info", "This is a test "+drug);
+            adapter = new DrugAdapter(this, (ArrayList<Drug>) drugs, drug -> {
                 //Todo implementer une action faisant la selection
             });
             recyclerView.setAdapter(adapter);
@@ -65,7 +59,6 @@ public class DrugListActivity extends AppCompatActivity {
                     Log.i("info", "the drug "+ drug.toString());
                 });
             }
-//            drugListTest.forEach(drug -> viewModel.save(drug, () -> {}));
         });
     }
 

@@ -12,12 +12,12 @@ import com.example.inf1030_tp1.Models.Drug;
 
 import java.util.List;
 
-public class DrugListViewModel extends AndroidViewModel {
+public class DrugViewModel extends AndroidViewModel {
 
     private DrugRepository repo;
     private LiveData<List<Drug>> drugs;
 
-    public DrugListViewModel(Application app){
+    public DrugViewModel(Application app){
         super(app);
         repo = new DrugRepository(app);
     }

@@ -1,7 +1,6 @@
 package com.example.inf1030_tp1.Adapters;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.inf1030_tp1.Models.Drug;
@@ -19,16 +17,15 @@ import com.example.inf1030_tp1.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHolder> implements Filterable {
+public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> implements Filterable {
     private ArrayList<Drug> drugList = new ArrayList<>();
     private ArrayList<Drug> drugListCopy; // copie de la liste originale, utilisee pour filtrer le resutlat de recherche
     private Consumer<Drug> consumer;
 
     private LayoutInflater inflater;
 
-    public DrugListAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
+    public DrugAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
         this.inflater = LayoutInflater.from(context);
         this.drugList = list;
         drugListCopy = new ArrayList<>(list);
