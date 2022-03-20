@@ -1,8 +1,10 @@
 package com.example.inf1030_tp1.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.databinding.ActivityMainBinding;
 import com.example.inf1030_tp1.fragments.HomeFragment;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.fragment_container_main, new HomeFragment())
                 .commit();
         this.configureToolbar();
+        navigationMenu();
 
     }
 
@@ -59,5 +63,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // Sets the Toolbar
         setSupportActionBar(toolbar);
+    }
+
+    private void navigationMenu(){
+        bindingMainActivity.bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        selectedFragment = new HomeFragment();
+                        break;
+                }
+                // It will help to replace the
+                // one fragment to other.
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container_main, selectedFragment).addToBackStack(selectedFragment.getTag())
+                        .commit();
+                return true;
+            }
+        });
     }
 }

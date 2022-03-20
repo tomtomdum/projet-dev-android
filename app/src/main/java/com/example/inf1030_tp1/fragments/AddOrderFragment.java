@@ -2,44 +2,41 @@ package com.example.inf1030_tp1.fragments;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.example.inf1030_tp1.Adapters.DrugListAdapter;
 import com.example.inf1030_tp1.Adapters.OrderListAdapter;
-import com.example.inf1030_tp1.Models.Order;
+import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
-import com.example.inf1030_tp1.fragments.welcome.TypeUserFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link AddOrderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class AddOrderFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private DrugListAdapter mDrugListAdapter;
+    private ArrayList<Drug> drugList = new ArrayList<>();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private OrderListAdapter orderListAdapter;
-
-    public HomeFragment() {
+    public AddOrderFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +46,11 @@ public class HomeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeFragment.
+     * @return A new instance of fragment AddOrderFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static AddOrderFragment newInstance(String param1, String param2) {
+        AddOrderFragment fragment = new AddOrderFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -74,47 +71,26 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View mView = inflater.inflate(R.layout.fragment_home, container, false);
-
-        //function in order to open a new fragment
-        openAddOrderFragement(mView);
+        View mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
+        populateList();
         initRecyclerView(mView);
-        loadUserList();
         return mView;
     }
 
-    private void openAddOrderFragement(View v){
-        v.findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatActivity activity = (AppCompatActivity)view.getContext();
-                AddOrderFragment addOrderFragment = new AddOrderFragment();
-                activity.getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container_main,addOrderFragment).commit();
-            }
-        });
+    private void populateList(){
+        for (int i =0; i<4; i++){
+            drugList.add(new Drug("pillule" + i, "goute pas bon"));
+        }
     }
+
     private void initRecyclerView(View mView){
-        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list);
+        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_drug_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
 //        recyclerView.addItemDecoration(dividerItemDecoration);
 
-        orderListAdapter = new OrderListAdapter(getActivity());
-        recyclerView.setAdapter(orderListAdapter);
-    }
-
-
-    private void loadUserList(){
-       // AppDataBase db = AppDataBase.getDbInstance(this.getApplicationContext());
-        List<Order> orderList = new ArrayList<>();
-        Order order1 = new Order("Order_09/02/2022");
-        Order order2 = new Order("Order_10/02/2022");
-
-        orderList.add(order1);
-        orderList.add(order2);
-
-        orderListAdapter.setOrderList(orderList);
+        mDrugListAdapter = new DrugListAdapter(getActivity(),drugList);
+        recyclerView.setAdapter(mDrugListAdapter);
     }
 }
