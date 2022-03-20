@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">inf1030-tp1</string>
-    <string name="logIn">Log in</string>
-    <string name="Search">Search</string>
+    <string name="app_name" translatable="false">inf1030-tp1</string>
+    <string name="logIn" translatable="false">Log in</string>
+    <string name="Search" translatable="false">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
