@@ -16,13 +16,23 @@
 <!--            android:minHeight="?attr/actionBarSize"-->
 <!--            android:theme="?attr/actionBarTheme" />-->
 
+    <include
+        layout="@layout/search_view"
+        />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_order_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="0dp"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="@id/search_view"
+        >
+
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"

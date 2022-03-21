@@ -12,9 +12,11 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +51,21 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
      */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+        Drug drug = drugList.get(position);
         viewHolder.description.setText(drugList.get(position).getDescription());
         viewHolder.drugName.setText(drugList.get(position).getName());
 
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                    i would to make a toast after ask to the teacher
+                //Toast.makeText(view.getContext(), "Drug : " +drug.getName() , Toast.LENGTH_SHORT).show();
+
+                // put a drug into a list in order to recover it into a cartFragment after that
+                ChooseOrder.setDrugList( drug);
+            }
+        });
     }
 
     @Override
@@ -107,7 +121,8 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    showPopup(view);
+//                    i would to make a toast after ask to the teacher
+
                 }
             });
 
