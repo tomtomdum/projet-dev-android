@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
     private OrderListAdapter orderListAdapter;
     private SearchView searchView;
     private List<Order> orderList;
+    private View mView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View mView = inflater.inflate(R.layout.fragment_home, container, false);
+         mView = inflater.inflate(R.layout.fragment_home, container, false);
 
         setUpSearchView();
 
@@ -91,7 +92,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setUpSearchView(){
-        searchView = getActivity().findViewById(R.id.search_view);
+        searchView = mView.findViewById(R.id.search_view);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -100,25 +101,41 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                filterList(s);
-                return true;
+            public boolean onQueryTextChange(String enteredText) {
+                orderListAdapter.getFilter().filter(enteredText);
+                return false;
             }
         });
     }
-    private void filterList(String text) {
-        List<Order> filteredList = new ArrayList<>();
-        for(Order order: orderList){
-            if(order.getOrderName().toLowerCase().contains(text.toLowerCase())){
-                filteredList.add(order);
-            }
-        }
-        if(filteredList.isEmpty()){
-            Toast.makeText(getActivity(),"No data found", Toast.LENGTH_LONG).show();
-        }else{
-            orderListAdapter.setFilteredList(filteredList);
-        }
-    }
+//    private void setUpSearchView1(){
+//        searchView = mView.findViewById(R.id.search_view);
+//        searchView.clearFocus();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//                filterList(s);
+//                return true;
+//            }
+//        });
+//    }
+//    private void filterList(String text) {
+//        List<Order> filteredList = new ArrayList<>();
+//        for(Order order: orderList){
+//            if(order.getOrderName().toLowerCase().contains(text.toLowerCase())){
+//                filteredList.add(order);
+//            }
+//        }
+//        if(filteredList.isEmpty()){
+//            Toast.makeText(getActivity(),"No data found", Toast.LENGTH_LONG).show();
+//        }else{
+//            orderListAdapter.setFilteredList(filteredList);
+//        }
+//    }
 
     private void openAddOrderFragement(View v){
         v.findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {

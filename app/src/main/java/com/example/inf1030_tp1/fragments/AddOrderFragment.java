@@ -37,6 +37,7 @@ public class AddOrderFragment extends Fragment {
     private ArrayList<Drug> drugList = new ArrayList<>();
     private SearchView searchView;
     private List<Order> orderList;
+    private View mView;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -76,7 +77,7 @@ public class AddOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
+         mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
         setUpSearchView();
         populateList();
         initRecyclerView(mView);
@@ -84,7 +85,7 @@ public class AddOrderFragment extends Fragment {
     }
 
     private void setUpSearchView(){
-        searchView = getActivity().findViewById(R.id.search_view);
+        searchView =  mView.findViewById(R.id.search_view);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
