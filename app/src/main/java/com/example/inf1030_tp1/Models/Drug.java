@@ -19,8 +19,9 @@ public class Drug {
         super();
         id = UUID.randomUUID().toString();
     }
-    public void setId(String id) { this.id = id; }
+    public void setId(@NonNull String id) { this.id = id; }
 
+    @NonNull
     public String getId() {
         return id;
     }
