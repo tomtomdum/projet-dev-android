@@ -29,6 +29,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     }
 
     public void setFilteredList(List<Order> filteredList){
+        this.orderList.clear();
             this.orderList = filteredList;
             notifyDataSetChanged();
     }

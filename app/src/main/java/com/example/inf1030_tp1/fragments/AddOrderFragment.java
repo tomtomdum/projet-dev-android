@@ -9,10 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.inf1030_tp1.Adapters.DrugListAdapter;
 import com.example.inf1030_tp1.Adapters.OrderListAdapter;
 import com.example.inf1030_tp1.Models.Drug;
+import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 
 import java.util.ArrayList;
@@ -29,9 +32,11 @@ public class AddOrderFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
     private DrugListAdapter mDrugListAdapter;
     private ArrayList<Drug> drugList = new ArrayList<>();
-
+    private SearchView searchView;
+    private List<Order> orderList;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -72,10 +77,57 @@ public class AddOrderFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
+        setUpSearchView();
         populateList();
         initRecyclerView(mView);
         return mView;
     }
+
+    private void setUpSearchView(){
+        searchView = getActivity().findViewById(R.id.search_view);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String enteredText) {
+                mDrugListAdapter.getFilter().filter(enteredText);
+                return false;
+            }
+        });
+    }
+//    private void setUpSearchView1(){
+//        searchView = getActivity().findViewById(R.id.search_view);
+//        searchView.clearFocus();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String s) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//                filterList(s);
+//                return true;
+//            }
+//        });
+//    }
+//    private void filterList(String text) {
+//        ArrayList<Drug> filteredList = new ArrayList<>();
+//        for(Drug drug: drugList){
+//            if(drug.getName().toLowerCase().contains(text.toLowerCase())){
+//                filteredList.add(drug);
+//            }
+//        }
+//        if(filteredList.isEmpty()){
+//            Toast.makeText(getActivity(),"No data found", Toast.LENGTH_LONG).show();
+//        }else{
+//            mDrugListAdapter.setFilteredList(filteredList);
+//        }
+//    }
 
     private void populateList(){
         for (int i =0; i<4; i++){

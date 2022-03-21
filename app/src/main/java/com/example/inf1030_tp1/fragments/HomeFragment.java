@@ -79,9 +79,20 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        setUpSearchView();
+
+
+        //function in order to open a new fragment
+        openAddOrderFragement(mView);
+        initRecyclerView(mView);
+        loadUserList();
+        return mView;
+    }
+
+    private void setUpSearchView(){
         searchView = getActivity().findViewById(R.id.search_view);
         searchView.clearFocus();
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -94,13 +105,7 @@ public class HomeFragment extends Fragment {
                 return true;
             }
         });
-        //function in order to open a new fragment
-        openAddOrderFragement(mView);
-        initRecyclerView(mView);
-        loadUserList();
-        return mView;
     }
-
     private void filterList(String text) {
         List<Order> filteredList = new ArrayList<>();
         for(Order order: orderList){
