@@ -64,10 +64,10 @@ public class CartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.fragment_cart, container, false);
-        // Inflate the layout for this fragment
-       TextView tv =  mView.findViewById(R.id.tvText);
-       int sizeList = ChooseOrder.drugList.size();
-       tv.setText(Integer.toString(sizeList));
+//        // Inflate the layout for this fragment
+//       TextView tv =  mView.findViewById(R.id.tvText);
+//       int sizeList = ChooseOrder.drugList.size();
+//       tv.setText(Integer.toString(sizeList));
         Log.i("List Drug", "SIZE : " + ChooseOrder.drugList.size());
         return mView;
     }

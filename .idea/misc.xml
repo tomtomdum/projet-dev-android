@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/button_quantity.xml" value="0.107" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/button_quantity_plus.xml" value="0.107" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/button_radius_primary_color.xml" value="0.1" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/edit_text_radius.xml" value="0.1" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/ic__map_24.xml" value="0.1" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/ic_shopping_cart_24.xml" value="0.1" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/item_radius_order.xml" value="0.1145" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/drawable/search_view_bg.xml" value="0.188" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/activity_drug_list.xml" value="0.1640625" />
@@ -22,10 +26,11 @@
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/fragment_profil.xml" value="0.14990942028985507" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/fragment_type_user.xml" value="0.15670289855072464" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/fragment_welcome.xml" value="0.15670289855072464" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/order_cart_item.xml" value="0.3333333333333333" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/order_list_item.xml" value="0.3333333333333333" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/layout/search_view.xml" value="0.11458333333333333" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/menu/app_menu.xml" value="0.14895833333333333" />
-        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/menu/menu.xml" value="0.1796875" />
+        <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/menu/menu.xml" value="0.1" />
         <entry key="..\:/UQTR_PROJECTS/ANDROID/EPHARMA/app/src/main/res/menu/toolbar_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1795" />
         <entry key="app/src/main/res/layout/activity_drug_list.xml" value="0.3546195652173913" />
