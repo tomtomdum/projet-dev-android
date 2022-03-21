@@ -27,6 +27,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
         this.orderList = orderList;
     }
+
+    public void setFilteredList(List<Order> filteredList){
+            this.orderList = filteredList;
+            notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

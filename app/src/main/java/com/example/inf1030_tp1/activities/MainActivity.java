@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home:
                         selectedFragment = new HomeFragment();
                         break;
+                    default:
+                         selectedFragment = new HomeFragment();
+
                 }
                 // It will help to replace the
                 // one fragment to other.

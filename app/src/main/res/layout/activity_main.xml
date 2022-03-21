@@ -2,27 +2,46 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activities.MainActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
         app:titleTextColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="50dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
+        />
+<!--     Importation de notre Toolbar -->
+<!--        <include-->
+<!--            layout="@layout/search_view"-->
+<!--            android:id="@+id/search_view"            -->
+<!--            app:layout_constraintBottom_toTopOf="@id/toolbar"-->
+<!--            />-->
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/item_margin"
+        android:layout_marginRight="@dimen/item_margin"
+        android:background="@drawable/item_radius_order"
+        app:queryHint="Search here ....."
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:iconifiedByDefault="false"
         />
 
     <FrameLayout
         android:id="@+id/fragment_container_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        android:layout_marginTop="20dp"
         android:layout_above="@id/bottomNavigationView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -30,7 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_alignParentBottom="true"
         app:menu="@menu/menu" />
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
