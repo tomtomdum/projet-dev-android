@@ -3,6 +3,8 @@ package com.example.inf1030_tp1.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,8 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.inf1030_tp1.Adapters.DrugListAdapter;
+import com.example.inf1030_tp1.Adapters.OrderListCartAdapter;
+import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +35,8 @@ public class CartFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private OrderListCartAdapter mOrderListCartAdapter;
+    private List<Drug> drugCartList;
     public CartFragment() {
         // Required empty public constructor
     }
@@ -68,7 +76,19 @@ public class CartFragment extends Fragment {
 //       TextView tv =  mView.findViewById(R.id.tvText);
 //       int sizeList = ChooseOrder.drugList.size();
 //       tv.setText(Integer.toString(sizeList));
-        Log.i("List Drug", "SIZE : " + ChooseOrder.drugList.size());
+        //Log.i("List Drug", "SIZE : " + ChooseOrder.drugList.size());
+        initRecyclerView(mView);
         return mView;
+    }
+
+    private void initRecyclerView(View mView){
+        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list_cart);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+//        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        mOrderListCartAdapter = new OrderListCartAdapter(getActivity(),ChooseOrder.drugList);
+        recyclerView.setAdapter(mOrderListCartAdapter);
     }
 }
