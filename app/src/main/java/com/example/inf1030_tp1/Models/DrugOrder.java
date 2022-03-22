@@ -1,24 +1,20 @@
 package com.example.inf1030_tp1.Models;
 
-import androidx.room.PrimaryKey;
-
-public class Drug {
-
-    @PrimaryKey(autoGenerate = true)
+public class DrugOrder {
     private long id;
     private String name;
     private String description;
-    private int quantityOrder = 0;
+    private int Quantity;
 
-    public int getQuantityOrder() {
-        return quantityOrder;
+    public int getQuantity() {
+        return Quantity;
     }
 
-    public void setQuantityOrder(int quantityOrder) {
-        this.quantityOrder = quantityOrder;
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
     }
 
-    public Drug(String name, String description) {
+    public DrugOrder(String name, String description) {
         this.name = name;
         this.description = description;
     }

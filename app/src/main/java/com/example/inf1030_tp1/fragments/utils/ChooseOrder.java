@@ -11,4 +11,12 @@ public class ChooseOrder {
     public static void setDrugList(Drug drug){
         drugList.add(drug);
     }
+    public static void setOrderQuantity(int quantity, int position){
+        Drug drug = drugList.get(position);
+        drug.setQuantityOrder(quantity);
+    }
+
+    public static void updateDruglist(){
+
+    }
 }

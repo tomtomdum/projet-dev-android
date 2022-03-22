@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +34,28 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
             @Override
             public void onClick(View view) {
                 drugList.remove(position);
+                ChooseOrder.drugList = drugList;
                 notifyDataSetChanged();
             }
         });
+    }
+
+    private void plusQty(TextView txtQty, Button btnPlus, int position){
+            btnPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   int qty = Integer.parseInt((String) txtQty.getText());
+                    qty++;
+                    drugList.get(position).setQuantityOrder(qty);
+                    ChooseOrder.drugList = drugList;
+//                   ChooseOrder.setOrderQuantity(qty,position);
+//                   drugList = ChooseOrder.drugList;
+                    //txtQty.setText(Integer.toString(qty));
+                  notifyDataSetChanged();
+                    //qty++;
+                    //Toast.makeText(context,"QTY : " + drugList.get(position).getQuantityOrder(),Toast.LENGTH_SHORT).show();
+                }
+            });
     }
 
     @NonNull
@@ -49,7 +69,10 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Drug drug = this.drugList.get(position);
         holder.drugName.setText(drug.getName());
+        holder.txtQuantity.setText(Integer.toString(drug.getQuantityOrder()));
         deleteItem(holder.btnDelete, position);
+        plusQty(holder.txtQuantity, holder.btnPlus, position);
+
     }
 
     @Override
@@ -61,6 +84,10 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView drugName;
         TextView btnDelete;
+        Button btnPlus;
+        Button btnLess;
+        TextView txtQuantity;
+
         //TextView drugName;
 
         public ViewHolder(@NonNull View itemView) {
@@ -68,7 +95,9 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
 
             drugName = (TextView) itemView.findViewById(R.id.drug_name);
             btnDelete = (TextView) itemView.findViewById(R.id.delete_item);
-
+            btnPlus = itemView.findViewById(R.id.plus_btn);
+            btnLess = itemView.findViewById(R.id.less_btn);
+            txtQuantity = itemView.findViewById(R.id.qty);
         }
     }
 }
