@@ -19,8 +19,8 @@
 
     <LinearLayout
         android:id="@+id/search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_height"
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@drawable/button_search"
@@ -31,14 +31,15 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:src="@drawable/ic_baseline_search_24"/>
             <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:textSize=""
+                android:textSize="@dimen/tv_title_3_size"
                 android:background="@drawable/button_search"
             android:text="Search"
+                android:textStyle="bold"
+                android:textColor="@color/white"
                 style="?android:attr/borderlessButtonStyle"
             />
     </LinearLayout>

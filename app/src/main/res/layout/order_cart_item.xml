@@ -65,8 +65,8 @@
 
             <Button
                 android:id="@+id/less_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/btn_cart"
+                android:layout_height="@dimen/btn_cart"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/tv_title_3_size"
                 android:background="@drawable/button_quantity_less"
@@ -79,8 +79,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/dark_blue"
-                android:paddingLeft="20dp"
+                android:paddingLeft="@dimen/item_padding"
                 android:paddingRight="20dp"
+                android:textSize="@dimen/tv_title_3_size"
                 android:text="01"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/plus_btn"
@@ -96,8 +97,8 @@
                 app:layout_constraintTop_toBottomOf="@id/delete_item"/>
             <Button
                 android:id="@+id/plus_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/btn_cart"
+                android:layout_height="@dimen/btn_cart"
                 android:textColor="@color/white"
                 android:background="@drawable/button_quantity_plus"
                 android:text="+"

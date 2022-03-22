@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.inf1030_tp1.Adapters.DrugListAdapter;
 import com.example.inf1030_tp1.Adapters.OrderListCartAdapter;
@@ -37,6 +39,7 @@ public class CartFragment extends Fragment {
     private String mParam2;
     private OrderListCartAdapter mOrderListCartAdapter;
     private List<Drug> drugCartList;
+    private Button btnDelete;
     public CartFragment() {
         // Required empty public constructor
     }
@@ -78,8 +81,10 @@ public class CartFragment extends Fragment {
 //       tv.setText(Integer.toString(sizeList));
         //Log.i("List Drug", "SIZE : " + ChooseOrder.drugList.size());
         initRecyclerView(mView);
+
         return mView;
     }
+
 
     private void initRecyclerView(View mView){
         RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list_cart);
