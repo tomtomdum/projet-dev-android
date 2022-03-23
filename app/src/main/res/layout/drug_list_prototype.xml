@@ -38,10 +38,12 @@
                 android:layout_marginLeft="@dimen/item_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:textColor="@color/dark_blue"
                 android:textStyle="bold"
+
                 android:textSize="@dimen/tv_title_3_size"
-                app:layout_constraintBottom_toTopOf="@+id/description"
+
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 

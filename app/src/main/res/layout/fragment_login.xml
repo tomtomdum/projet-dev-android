@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/et_paddingLeftRight"
     android:paddingRight="@dimen/et_paddingLeftRight"
     android:orientation="vertical"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".fragments.user.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -68,6 +68,7 @@
             />
 
         <TextView
+            android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/tv_title_3_size"

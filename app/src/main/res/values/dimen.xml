@@ -28,6 +28,9 @@
     <dimen name="item_margin">15dp</dimen>
 
     <dimen name="item_bottom">20dp</dimen>
+    <dimen name="item_padding">20dp</dimen>
+
+    <dimen name="btn_cart">35dip</dimen>
     <!-- Images -->
     <dimen name="size_image_height">60dip</dimen>
     <dimen name="size_image_width">@dimen/size_image_height</dimen>

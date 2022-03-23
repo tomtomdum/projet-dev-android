@@ -15,6 +15,10 @@
 <!--            android:background="?attr/colorPrimary"-->
 <!--            android:minHeight="?attr/actionBarSize"-->
 <!--            android:theme="?attr/actionBarTheme" />-->
+    <!--     Importation de notre Toolbar -->
+<!--    <include-->
+<!--        layout="@layout/tool_bar"-->
+<!--        />-->
 
     <include
         layout="@layout/search_view"
