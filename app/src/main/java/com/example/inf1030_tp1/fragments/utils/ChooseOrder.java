@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChooseOrder {
+    public static final String SHARED_PREF_USER_INFO = "SHARED_PREF_USER_INFO";
+    public static final String SHARED_PREF_USER_INFO_NAME = "SHARED_PREF_USER_INFO_NAME";
     public static List<Drug> drugList = new ArrayList<>();
 
     public static void setDrugList(Drug drug){

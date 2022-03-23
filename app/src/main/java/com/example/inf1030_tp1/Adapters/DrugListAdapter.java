@@ -118,13 +118,6 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-//                    i would to make a toast after ask to the teacher
-
-                }
-            });
 
             drugName = (TextView) itemView.findViewById(R.id.nom_item);
             description = (TextView) itemView.findViewById(R.id.description);

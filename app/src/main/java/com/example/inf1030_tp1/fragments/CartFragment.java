@@ -1,7 +1,11 @@
 package com.example.inf1030_tp1.fragments;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +22,10 @@ import com.example.inf1030_tp1.Adapters.DrugListAdapter;
 import com.example.inf1030_tp1.Adapters.OrderListCartAdapter;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.activities.MainActivity;
+import com.example.inf1030_tp1.activities.UserManagerActivity;
 import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
+import com.example.inf1030_tp1.fragments.welcome.TypeUserFragment;
 
 import java.util.List;
 
@@ -40,6 +47,7 @@ public class CartFragment extends Fragment {
     private OrderListCartAdapter mOrderListCartAdapter;
     private List<Drug> drugCartList;
     private Button btnDelete;
+    //private SharedPreferences mPreferences ;
     public CartFragment() {
         // Required empty public constructor
     }
@@ -80,11 +88,35 @@ public class CartFragment extends Fragment {
 //       int sizeList = ChooseOrder.drugList.size();
 //       tv.setText(Integer.toString(sizeList));
         //Log.i("List Drug", "SIZE : " + ChooseOrder.drugList.size());
+
+        //getActivity().getSharedPreferences(ChooseOrder.SHARED_PREF_USER_INFO, Context.MODE_PRIVATE);
+
         initRecyclerView(mView);
+
+        searchButton(mView.findViewById(R.id.btn_search));
+        searchButton(mView.findViewById(R.id.btn_search_1));
+        searchButton(mView.findViewById(R.id.btn_search_2));
 
         return mView;
     }
 
+    private void searchButton(View mView){
+        mView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(getActivity(),"OKKKK",Toast.LENGTH_SHORT).show();
+               String userName = getActivity().getSharedPreferences(ChooseOrder.SHARED_PREF_USER_INFO,Context.MODE_PRIVATE).getString(ChooseOrder.SHARED_PREF_USER_INFO_NAME,null);
+                if(userName == null){
+//                    AppCompatActivity activity = (AppCompatActivity)view.getContext();
+//                    LoginFragment userFragment = new LoginFragment();
+//                    activity.getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.fragment_container_main,userFragment).commit();
+                    Intent intent = new Intent(getActivity(), UserManagerActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+    }
 
     private void initRecyclerView(View mView){
         RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list_cart);
