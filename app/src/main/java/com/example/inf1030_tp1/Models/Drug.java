@@ -8,7 +8,7 @@ public class Drug {
     private long id;
     private String name;
     private String description;
-    private int quantityOrder = 0;
+    private int quantityOrder = 1;
 
     public int getQuantityOrder() {
         return quantityOrder;

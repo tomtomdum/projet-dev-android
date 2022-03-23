@@ -48,16 +48,26 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
                     qty++;
                     drugList.get(position).setQuantityOrder(qty);
                     ChooseOrder.drugList = drugList;
-//                   ChooseOrder.setOrderQuantity(qty,position);
-//                   drugList = ChooseOrder.drugList;
-                    //txtQty.setText(Integer.toString(qty));
                   notifyDataSetChanged();
-                    //qty++;
-                    //Toast.makeText(context,"QTY : " + drugList.get(position).getQuantityOrder(),Toast.LENGTH_SHORT).show();
+
                 }
             });
     }
+private void lessQty(TextView txtQty, Button btnLess, int position){
+    btnLess.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            int qty = Integer.parseInt((String) txtQty.getText());
+            qty--;
+            if(qty >= 0){
+                drugList.get(position).setQuantityOrder(qty);
+                ChooseOrder.drugList = drugList;
+                notifyDataSetChanged();
+            }
 
+        }
+    });
+}
     @NonNull
     @Override
     public OrderListCartAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -72,6 +82,7 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
         holder.txtQuantity.setText(Integer.toString(drug.getQuantityOrder()));
         deleteItem(holder.btnDelete, position);
         plusQty(holder.txtQuantity, holder.btnPlus, position);
+        lessQty(holder.txtQuantity, holder.btnLess, position);
 
     }
 

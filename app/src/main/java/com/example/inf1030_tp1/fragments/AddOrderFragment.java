@@ -1,7 +1,9 @@
 package com.example.inf1030_tp1.fragments;
 
+
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -81,6 +83,8 @@ public class AddOrderFragment extends Fragment {
         setUpSearchView();
         populateList();
         initRecyclerView(mView);
+
+//        ActionBar ba = getSupport
         return mView;
     }
 

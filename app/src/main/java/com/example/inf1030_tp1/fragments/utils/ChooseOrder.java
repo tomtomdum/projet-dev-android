@@ -9,7 +9,8 @@ public class ChooseOrder {
     public static List<Drug> drugList = new ArrayList<>();
 
     public static void setDrugList(Drug drug){
-        drugList.add(drug);
+        if(drugList.indexOf(drug) == -1)
+            drugList.add(drug);
     }
     public static void setOrderQuantity(int quantity, int position){
         Drug drug = drugList.get(position);

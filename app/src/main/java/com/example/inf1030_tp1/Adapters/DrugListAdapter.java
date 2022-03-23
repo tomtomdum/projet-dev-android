@@ -60,7 +60,7 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
             @Override
             public void onClick(View view) {
 //                    i would to make a toast after ask to the teacher
-                //Toast.makeText(view.getContext(), "Drug : " +drug.getName() , Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Drug Added to cart", Toast.LENGTH_LONG).show();
 
                 // put a drug into a list in order to recover it into a cartFragment after that
                 ChooseOrder.setDrugList( drug);
