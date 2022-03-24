@@ -7,7 +7,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.inf1030_tp1.Data.DAO.ClientDAO;
-import com.example.inf1030_tp1.Data.DAO.DrugDao;
+import com.example.inf1030_tp1.Data.DAO.DrugDAO;
+import com.example.inf1030_tp1.Data.DAO.SyncInfoDAO;
 import com.example.inf1030_tp1.Models.Client;
 import com.example.inf1030_tp1.Models.Drug;
 
@@ -21,7 +22,8 @@ import com.example.inf1030_tp1.Models.Drug;
 public abstract class Db extends RoomDatabase {
     private static Db instance;
     public abstract ClientDAO clientDAO();
-    public abstract DrugDao drugDao();
+    public abstract DrugDAO drugDAO();
+    public abstract SyncInfoDAO syncInfoDAO();
 
 
 

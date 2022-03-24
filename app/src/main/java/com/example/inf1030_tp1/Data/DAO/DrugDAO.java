@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Dao
-public interface DrugDao {
+public interface DrugDAO {
 
     @Query("SELECT * FROM drug")
     LiveData<List<Drug>> getAll();

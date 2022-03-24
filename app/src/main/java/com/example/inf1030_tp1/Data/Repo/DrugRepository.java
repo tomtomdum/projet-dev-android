@@ -1,31 +1,24 @@
 package com.example.inf1030_tp1.Data.Repo;
 import android.app.Application;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
 
-import com.example.inf1030_tp1.Data.DAO.DrugDao;
+import com.example.inf1030_tp1.Data.DAO.DrugDAO;
 import com.example.inf1030_tp1.MainApp;
-import com.example.inf1030_tp1.Models.Client;
 import com.example.inf1030_tp1.Models.Drug;
 
 import java.util.List;
 
 public class DrugRepository {
     // todo finish the implementation with threads
-    private DrugDao drugDao;
+    private DrugDAO drugDao;
     private LiveData<List<Drug>> drugs;
     private MainApp app;
 
     public DrugRepository(Application app){
         this.app = (MainApp) app;
-        drugDao = this.app.getDb().drugDao();
+        drugDao = this.app.getDb().drugDAO();
     }
 
     public LiveData<List<Drug>> getAllDrugs(){
