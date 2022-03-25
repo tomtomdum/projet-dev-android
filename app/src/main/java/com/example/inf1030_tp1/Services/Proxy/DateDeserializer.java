@@ -1,4 +1,0 @@
-package com.example.inf1030_tp1.Services.Proxy;
-
-public class DateDeserializer {
-}

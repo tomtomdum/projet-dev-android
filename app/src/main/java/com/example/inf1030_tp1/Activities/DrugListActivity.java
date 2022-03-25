@@ -19,7 +19,6 @@ import com.example.inf1030_tp1.MainApp;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.ViewModels.DrugViewModel;
-import com.example.inf1030_tp1.databinding.ActivityDrugListBinding;
 
 import java.util.ArrayList;
 
@@ -28,7 +27,7 @@ public class DrugListActivity extends AppCompatActivity {
     private ArrayList<Drug> drugList = new ArrayList<>();
     private ArrayList<Drug> drugListTest = new ArrayList<>();
     private DrugAdapter adapter;
-    private ActivityDrugListBinding binder;
+//    private ActivityDrugListBinding binder;
     private Button addDrugTestButton;
     private DrugViewModel viewModel;
     private MainApp app;
@@ -36,23 +35,24 @@ public class DrugListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binder = DataBindingUtil.setContentView(this,R.layout.activity_drug_list);
+//        binder = DataBindingUtil.setContentView(this,R.layout.activity_drug_list);
         app = (MainApp) getApplicationContext();
 
-        RecyclerView recyclerView = findViewById(binder.recyclerViewDrugList.getId());
+////        RecyclerView recyclerView = findViewById(binder.recyclerViewDrugList.getId());
+////        RecyclerView recyclerView = binder.getRoot().findViewById(binder.getRoot())
+//
+//        drugListTest = new ArrayList<>();
+//        populateList();
+//
+//        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
+//        viewModel.liveAll().observe(this, drugs -> {
+//            adapter = new DrugAdapter(this, (ArrayList<Drug>) drugs, drug -> {
+//                //Todo implementer une action faisant la selection
+//            });
+//            recyclerView.setAdapter(adapter);
+//        });
 
-        drugListTest = new ArrayList<>();
-        populateList();
-
-        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
-        viewModel.liveAll().observe(this, drugs -> {
-            adapter = new DrugAdapter(this, (ArrayList<Drug>) drugs, drug -> {
-                //Todo implementer une action faisant la selection
-            });
-            recyclerView.setAdapter(adapter);
-        });
-
-        addDrugTestButton = binder.testButton;
+//        addDrugTestButton = binder.testButton;
         addDrugTestButton.setOnClickListener(view -> {
             for (Drug drug : drugListTest) {
                 viewModel.save(drug, ()->{
