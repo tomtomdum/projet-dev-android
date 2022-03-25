@@ -15,17 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.inf1030_tp1.Adapters.DrugListAdapter;
 import com.example.inf1030_tp1.Adapters.OrderListCartAdapter;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.R;
-import com.example.inf1030_tp1.activities.MainActivity;
-import com.example.inf1030_tp1.activities.UserManagerActivity;
+import com.example.inf1030_tp1.Activities.UserManagerActivity;
 import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
-import com.example.inf1030_tp1.fragments.welcome.TypeUserFragment;
 
 import java.util.List;
 

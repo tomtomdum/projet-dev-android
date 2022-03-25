@@ -51,7 +51,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Order order = this.orderList.get(position);
-        holder.orderName.setText(order.getOrderName());
+        holder.orderName.setText(order.getmOrderName());
     }
 
     @Override
@@ -78,7 +78,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             else {
                 String filterString = charSequence.toString().toLowerCase().trim();
                 for( Order order: orderListCopy) {
-                    if(order.getOrderName().toLowerCase().contains(filterString)){
+                    if(order.getmOrderName().toLowerCase().contains(filterString)){
                         orderListFiltered.add(order);
                     }
                 }

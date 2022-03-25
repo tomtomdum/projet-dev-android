@@ -1,4 +1,4 @@
-package com.example.inf1030_tp1.activities;
+package com.example.inf1030_tp1.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

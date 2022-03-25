@@ -1,5 +1,6 @@
-package com.example.inf1030_tp1.Models.DAO;
+package com.example.inf1030_tp1.Data.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,10 +14,10 @@ import java.util.List;
 @Dao
 public interface ClientDAO {
     @Query("SELECT * FROM client")
-    List<Client> getall();
+    LiveData<List<Client>> getAll();
 
     @Query("SELECT * FROM client WHERE id = :id")
-    Client get(long id);
+    LiveData<Client> get(long id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Client... client);

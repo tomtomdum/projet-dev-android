@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey;
 public class Client {
     @PrimaryKey(autoGenerate = true)
     private long id;
-    private String fName;
-    private String Lname;
+    private String firstName;
+    private String lastName;
     private String phoneNumber;
     private String address;
 
@@ -16,20 +16,22 @@ public class Client {
         return id;
     }
 
-    public String getfName() {
-        return fName;
+    public void setId(long id) { this.id = id; }
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirstName(String fName) {
+        this.firstName = fName;
     }
 
-    public String getLname() {
-        return Lname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLname(String lname) {
-        Lname = lname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {

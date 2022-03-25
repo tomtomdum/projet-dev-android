@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,11 +15,12 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.example.inf1030_tp1.Adapters.DrugListAdapter;
+import com.example.inf1030_tp1.Adapters.DrugAdapter;
 import com.example.inf1030_tp1.Adapters.OrderListAdapter;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.ViewModels.DrugViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,8 @@ public class AddOrderFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private DrugListAdapter mDrugListAdapter;
+    private DrugViewModel viewModel;
+    private DrugAdapter mDrugListAdapter;
     private ArrayList<Drug> drugList = new ArrayList<>();
     private SearchView searchView;
     private List<Order> orderList;
@@ -81,8 +84,9 @@ public class AddOrderFragment extends Fragment {
         // Inflate the layout for this fragment
          mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
         setUpSearchView();
-        populateList();
+//        populateList();
         initRecyclerView(mView);
+
 
 //        ActionBar ba = getSupport
         return mView;
@@ -104,40 +108,11 @@ public class AddOrderFragment extends Fragment {
             }
         });
     }
-//    private void setUpSearchView1(){
-//        searchView = getActivity().findViewById(R.id.search_view);
-//        searchView.clearFocus();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                filterList(s);
-//                return true;
-//            }
-//        });
-//    }
-//    private void filterList(String text) {
-//        ArrayList<Drug> filteredList = new ArrayList<>();
-//        for(Drug drug: drugList){
-//            if(drug.getName().toLowerCase().contains(text.toLowerCase())){
-//                filteredList.add(drug);
-//            }
-//        }
-//        if(filteredList.isEmpty()){
-//            Toast.makeText(getActivity(),"No data found", Toast.LENGTH_LONG).show();
-//        }else{
-//            mDrugListAdapter.setFilteredList(filteredList);
-//        }
-//    }
 
     private void populateList(){
-        for (int i =0; i<4; i++){
-            drugList.add(new Drug("pillule" + i, "goute pas bon"));
-        }
+//        for (int i =0; i<4; i++){
+//            drugList.add(new Drug("pillule" + i, "goute pas bon"));
+//        }
     }
 
     private void initRecyclerView(View mView){
@@ -147,7 +122,14 @@ public class AddOrderFragment extends Fragment {
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
 //        recyclerView.addItemDecoration(dividerItemDecoration);
 
-        mDrugListAdapter = new DrugListAdapter(getActivity(),drugList);
-        recyclerView.setAdapter(mDrugListAdapter);
+        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
+        viewModel.liveAll().observe(getActivity(), drugs -> {
+            mDrugListAdapter = new DrugAdapter(getActivity(), (ArrayList<Drug>) drugs, drug -> {
+                //Todo implementer une action faisant la selection
+            });
+            recyclerView.setAdapter(mDrugListAdapter);
+        });
+//        mDrugListAdapter = new DrugAdapter(getActivity(),drugList);
+//        recyclerView.setAdapter(mDrugListAdapter);
     }
 }

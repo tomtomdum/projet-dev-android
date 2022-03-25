@@ -1,7 +1,7 @@
 package com.example.inf1030_tp1.Adapters;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
+import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,19 +19,42 @@ import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHolder> implements Filterable {
+public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> implements Filterable {
     private ArrayList<Drug> drugList = new ArrayList<>();
     private ArrayList<Drug> drugListCopy; // copie de la liste originale, utilisee pour filtrer le resutlat de recherche
+    private Consumer<Drug> consumer;
 
     private LayoutInflater inflater;
 
-    public DrugListAdapter(Context context, ArrayList list){
+    public DrugAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
         this.inflater = LayoutInflater.from(context);
         this.drugList = list;
         drugListCopy = new ArrayList<>(list);
+        this.consumer = consumer;
     }
+
+//    public class ViewHolder extends RecyclerView.ViewHolder {
+//        TextView description;
+//        TextView drugName;
+//
+//        public ViewHolder(@NonNull View itemView) {
+//            super(itemView);
+//
+//            itemView.setOnClickListener(listener -> {
+//                new Consumer() {
+//                    @Override
+//                    public void accept(Object o) {
+//
+//                    }
+//                };
+//            });
+//
+//            drugName = (TextView) itemView.findViewById(R.id.nom_item);
+//            description = (TextView) itemView.findViewById(R.id.description);
+//
+//        }
+//    }
 
     // inflates the row layout from xml when needed
     @NonNull
@@ -55,16 +77,10 @@ public class DrugListAdapter extends RecyclerView.Adapter<DrugListAdapter.ViewHo
         viewHolder.description.setText(drugList.get(position).getDescription());
         viewHolder.drugName.setText(drugList.get(position).getName());
 
-
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                    i would to make a toast after ask to the teacher
-                Toast.makeText(view.getContext(), "Drug Added to cart", Toast.LENGTH_LONG).show();
-
-                // put a drug into a list in order to recover it into a cartFragment after that
-                ChooseOrder.setDrugList( drug);
-            }
+        viewHolder.itemView.setOnClickListener(listener -> {
+            consumer.accept(drugList.get(position));
+            ChooseOrder.setDrugList(drug);
+            Toast.makeText(listener.getContext(), "Drug Added to cart", Toast.LENGTH_LONG).show();
         });
     }
 

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.inf1030_tp1.R;
-import com.example.inf1030_tp1.activities.MainActivity;
+import com.example.inf1030_tp1.Activities.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
