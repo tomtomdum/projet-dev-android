@@ -44,11 +44,11 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
             btnPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   int qty = Integer.parseInt((String) txtQty.getText());
-                    qty++;
-                    drugList.get(position).setQuantityOrder(qty);
-                    ChooseOrder.drugList = drugList;
-                  notifyDataSetChanged();
+//                   int qty = Integer.parseInt((String) txtQty.getText());
+//                    qty++;
+////                    drugList.get(position).setQuantityOrder(qty);
+//                    ChooseOrder.drugList = drugList;
+//                  notifyDataSetChanged();
 
                 }
             });
@@ -57,13 +57,13 @@ private void lessQty(TextView txtQty, Button btnLess, int position){
     btnLess.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            int qty = Integer.parseInt((String) txtQty.getText());
-            qty--;
-            if(qty >= 0){
-                drugList.get(position).setQuantityOrder(qty);
-                ChooseOrder.drugList = drugList;
-                notifyDataSetChanged();
-            }
+//            int qty = Integer.parseInt((String) txtQty.getText());
+//            qty--;
+//            if(qty >= 0){
+//                drugList.get(position).setQuantityOrder(qty);
+//                ChooseOrder.drugList = drugList;
+//                notifyDataSetChanged();
+//            }
 
         }
     });
@@ -78,8 +78,9 @@ private void lessQty(TextView txtQty, Button btnLess, int position){
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Drug drug = this.drugList.get(position);
-        holder.drugName.setText(drug.getName());
-        holder.txtQuantity.setText(Integer.toString(drug.getQuantityOrder()));
+        holder.drugName.setText(drug.getDci());
+//        holder.txtQuantity.setText(Integer.toString(drug.getQuantityOrder()));
+        holder.txtQuantity.setText(0);
         deleteItem(holder.btnDelete, position);
         plusQty(holder.txtQuantity, holder.btnPlus, position);
         lessQty(holder.txtQuantity, holder.btnLess, position);

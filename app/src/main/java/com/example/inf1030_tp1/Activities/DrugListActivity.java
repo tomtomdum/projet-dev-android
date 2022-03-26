@@ -62,15 +62,6 @@ public class DrugListActivity extends AppCompatActivity {
         });
     }
 
-    private void populateList(){
-        for (int i =0; i<4; i++){
-            Drug drug = new Drug();
-            drug.setDescription("graasdf");
-            drug.setName("pillule "+i);
-            drugListTest.add(drug);
-        }
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

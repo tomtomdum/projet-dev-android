@@ -1,6 +1,7 @@
 package com.example.inf1030_tp1.Models;
 
 public class DrugOrder {
+
     private long id;
     private String name;
     private String description;

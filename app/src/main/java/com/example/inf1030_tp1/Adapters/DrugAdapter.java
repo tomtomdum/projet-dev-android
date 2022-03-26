@@ -74,8 +74,8 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Drug drug = drugList.get(position);
-        viewHolder.description.setText(drugList.get(position).getDescription());
-        viewHolder.drugName.setText(drugList.get(position).getName());
+        viewHolder.description.setText(drugList.get(position).getForm());
+        viewHolder.drugName.setText(drugList.get(position).getDci());
 
         viewHolder.itemView.setOnClickListener(listener -> {
             consumer.accept(drugList.get(position));
@@ -109,7 +109,7 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
             else {
                 String filterString = charSequence.toString().toLowerCase().trim();
                 for( Drug drug: drugListCopy) {
-                    if(drug.getName().toLowerCase().contains(filterString)){
+                    if(drug.getDci().toLowerCase().contains(filterString)){
                         drugListFiltered.add(drug);
                     }
                 }

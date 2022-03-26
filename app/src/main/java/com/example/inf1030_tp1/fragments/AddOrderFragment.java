@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +93,25 @@ public class AddOrderFragment extends Fragment {
         return mView;
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_drug_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+//        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
+        viewModel.liveAll().observe(getActivity(), drugs -> {
+            mDrugListAdapter = new DrugAdapter(getActivity(), (ArrayList<Drug>) drugs, drug -> {
+                //Todo implementer une action faisant la selection
+            });
+            Log.i("info", "testfffff: "+ mDrugListAdapter.getItemCount());
+            recyclerView.setAdapter(mDrugListAdapter);
+        });
+    }
+
     private void setUpSearchView(){
         searchView =  mView.findViewById(R.id.search_view);
         searchView.clearFocus();
@@ -116,19 +136,20 @@ public class AddOrderFragment extends Fragment {
     }
 
     private void initRecyclerView(View mView){
-        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_drug_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-//        recyclerView.addItemDecoration(dividerItemDecoration);
-
-        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
-        viewModel.liveAll().observe(getActivity(), drugs -> {
-            mDrugListAdapter = new DrugAdapter(getActivity(), (ArrayList<Drug>) drugs, drug -> {
-                //Todo implementer une action faisant la selection
-            });
-            recyclerView.setAdapter(mDrugListAdapter);
-        });
+//        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_drug_list);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//
+////        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+////        recyclerView.addItemDecoration(dividerItemDecoration);
+//
+//        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
+//        viewModel.liveAll().observe(getActivity(), drugs -> {
+//            mDrugListAdapter = new DrugAdapter(getActivity(), (ArrayList<Drug>) drugs, drug -> {
+//                //Todo implementer une action faisant la selection
+//            });
+//            Log.i("info", "testfffff: "+ mDrugListAdapter);
+//            recyclerView.setAdapter(mDrugListAdapter);
+//        });
 //        mDrugListAdapter = new DrugAdapter(getActivity(),drugList);
 //        recyclerView.setAdapter(mDrugListAdapter);
     }
