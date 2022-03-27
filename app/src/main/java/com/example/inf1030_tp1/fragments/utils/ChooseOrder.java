@@ -15,8 +15,8 @@ public class ChooseOrder {
             drugList.add(drug);
     }
     public static void setOrderQuantity(int quantity, int position){
-        Drug drug = drugList.get(position);
-        drug.setQuantityOrder(quantity);
+//        Drug drug = drugList.get(position);
+//        drug.setQuantityOrder(quantity);
     }
 
     public static void updateDruglist(){

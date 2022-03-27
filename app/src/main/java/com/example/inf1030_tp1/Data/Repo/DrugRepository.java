@@ -33,22 +33,8 @@ public class DrugRepository {
     public void insert(Runnable completion, Drug drug){
         Thread t = new Thread(() -> {
            drugDao.insert(drug);
-            Log.i("info", "TABARNAQUEEEEEEE");
-            Log.i("info", "This is a test "+drug.getId());
         });
         t.start();
-//        app.dbPost(() -> {
-////            Log.i("info", "TABARNAQUEEEEEEE");
-//            drugDao.insert(drugs);
-//        });
-//        app.dbPost(()->{
-//            Log.i("info", "TABARNAQUEEEEEEE");
-//            drugDao.insert(drugs);
-//            if(completion != null) {
-//                new Handler(Looper.getMainLooper()).post(completion);
-//            }
-//        });
-
     }
 
     public void delete(Drug... drugs){ drugDao.delete(drugs); }

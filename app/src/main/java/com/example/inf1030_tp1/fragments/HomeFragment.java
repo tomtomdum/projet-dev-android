@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class HomeFragment extends Fragment {
     private SearchView searchView;
     private List<Order> orderList;
     private View mView;
+    public static ArrayList<Order> orders = new ArrayList<>();
 
     public HomeFragment() {
         // Required empty public constructor
@@ -87,8 +89,25 @@ public class HomeFragment extends Fragment {
         //function in order to open a new fragment
         openAddOrderFragement(mView);
         initRecyclerView(mView);
-        loadUserList();
         return mView;
+    }
+
+
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+       super.onViewCreated(view, savedInstanceState);
+
+        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+//        recyclerView.addItemDecoration(dividerItemDecoration);
+
+        orderListAdapter = new OrderListAdapter(getActivity());
+        Log.i("info", "testfffff: "+ orderListAdapter);
+        recyclerView.setAdapter(orderListAdapter);
+        loadUserList();
     }
 
     private void setUpSearchView(){
@@ -149,14 +168,15 @@ public class HomeFragment extends Fragment {
         });
     }
     private void initRecyclerView(View mView){
-        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-//        recyclerView.addItemDecoration(dividerItemDecoration);
-
-        orderListAdapter = new OrderListAdapter(getActivity());
-        recyclerView.setAdapter(orderListAdapter);
+//        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//
+////        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+////        recyclerView.addItemDecoration(dividerItemDecoration);
+//
+//        orderListAdapter = new OrderListAdapter(getActivity());
+//        Log.i("info", "testfffff: "+ orderListAdapter);
+//        recyclerView.setAdapter(orderListAdapter);
     }
 
 

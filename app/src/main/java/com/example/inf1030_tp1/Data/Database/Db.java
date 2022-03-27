@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
             Client.class,
             Drug.class,
     },
-        version = 2
+        version = 3
 )
 public abstract class Db extends RoomDatabase {
     private static Db instance;
@@ -38,7 +38,9 @@ public abstract class Db extends RoomDatabase {
                             super.onCreate(db);
                             Executors.newSingleThreadScheduledExecutor()
                                     .execute(() -> iniSchema(db,context));
-                        }}).build();
+                        }})
+                    .fallbackToDestructiveMigration()
+                    .build();
         }
         return  instance;
     }

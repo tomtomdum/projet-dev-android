@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.databinding.ActivityMainBinding;
 import com.example.inf1030_tp1.fragments.AddOrderFragment;
@@ -20,7 +21,6 @@ import com.example.inf1030_tp1.fragments.HomeFragment;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
-
     private ActivityMainBinding bindingMainActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 // User chose the "Settings" item, show the app settings UI...
                 //Toast.makeText(this, "Il n'y a rien à paramétrer ici, passez votre chemin...", Toast.LENGTH_LONG).show();
                // AppCompatActivity activity = (AppCompatActivity)view.getContext();
-                CartFragment cartFragment = new CartFragment();
+                CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(HomeFragment.orders.size()-1));
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container_main,cartFragment).commit();
                 return true;
