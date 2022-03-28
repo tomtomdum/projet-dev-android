@@ -39,10 +39,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.toolbar_menu_search:
+            case R.id.toolbar_menu_cart:
                 // User chose the "Settings" item, show the app settings UI...
-                //Toast.makeText(this, "Il n'y a rien à paramétrer ici, passez votre chemin...", Toast.LENGTH_LONG).show();
-               // AppCompatActivity activity = (AppCompatActivity)view.getContext();
+                /*
+                on va chercher la liste static qui contient tous les orders en avoir qu'une seule et
+                unique dans tout l'application. Dance ce cas si on utilise la derniere créé à fin de
+                test, mais avec la liste facilement acessible, nous pourront implémenter plus tard un
+                moyen de selectionner quelle Order que nous voulons accéder au panier
+                 */
                 CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(HomeFragment.orders.size()-1));
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container_main,cartFragment).commit();
