@@ -59,7 +59,7 @@ private void lessQty(TextView txtQty, Button btnLess, int position){
         @Override
         public void onClick(View view) {
             int qty = Integer.parseInt((String) txtQty.getText());
-            qty--;
+            if(qty > 0) qty--;
             order.setDrugQuantity(drugList.get(position), qty);
             notifyDataSetChanged();
         }
