@@ -44,6 +44,7 @@ public class HomeFragment extends Fragment {
     private SearchView searchView;
     private List<Order> orderList;
     private View mView;
+    public static ArrayList<Order> orders = new ArrayList<>();
 
     public HomeFragment() {
         // Required empty public constructor

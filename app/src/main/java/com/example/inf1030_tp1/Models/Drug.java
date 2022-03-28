@@ -153,9 +153,4 @@ public class Drug {
         this.status = status;
     }
 
-//    private String id;
-//    private String name;
-//    private String description;
-//    private int quantityOrder = 1;
-
 }

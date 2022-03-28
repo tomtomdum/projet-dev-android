@@ -25,13 +25,11 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     private List<Order> orderListCopy;
 
     public OrderListAdapter(Context context) {
-
         this.context = context;
         orderListCopy = new ArrayList<>();
     }
 
     public void setOrderList(List<Order> orderList){
-
         this.orderList = orderList;
         orderListCopy.addAll((List)orderList);
     }
@@ -63,8 +61,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     public Filter getFilter() {
         return filter;
     }
-/**
-        * Recois le texte de la barre de recherche et filtre la liste, ensuite il affiche la nouvelle
+    /**
+     * Recois le texte de la barre de recherche et filtre la liste, ensuite il affiche la nouvelle
      * liste
      */
     private Filter filter = new Filter() {

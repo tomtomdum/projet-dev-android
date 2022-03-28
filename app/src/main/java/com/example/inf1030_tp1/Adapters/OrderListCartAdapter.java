@@ -22,10 +22,13 @@ import java.util.List;
 public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdapter.ViewHolder>{
     private Context context;
     private List<Drug> drugList;
+    private Order order;
 
-    public OrderListCartAdapter(Context context, List<Drug> drugList) {
+    public OrderListCartAdapter(Context context, List<Drug> drugList, Order order) {
         this.context = context;
         this.drugList = drugList;
+        this.order = order;
+        initializeMap();
     }
 
     private void deleteItem(TextView btnDelete, int position){
@@ -44,12 +47,10 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
             btnPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                   int qty = Integer.parseInt((String) txtQty.getText());
-//                    qty++;
-////                    drugList.get(position).setQuantityOrder(qty);
-//                    ChooseOrder.drugList = drugList;
-//                  notifyDataSetChanged();
-
+                   int qty = Integer.parseInt((String) txtQty.getText());
+                    qty++;
+                    order.setDrugQuantity(drugList.get(position), qty);
+                  notifyDataSetChanged();
                 }
             });
     }
@@ -57,14 +58,10 @@ private void lessQty(TextView txtQty, Button btnLess, int position){
     btnLess.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-//            int qty = Integer.parseInt((String) txtQty.getText());
-//            qty--;
-//            if(qty >= 0){
-//                drugList.get(position).setQuantityOrder(qty);
-//                ChooseOrder.drugList = drugList;
-//                notifyDataSetChanged();
-//            }
-
+            int qty = Integer.parseInt((String) txtQty.getText());
+            qty--;
+            order.setDrugQuantity(drugList.get(position), qty);
+            notifyDataSetChanged();
         }
     });
 }
@@ -79,12 +76,10 @@ private void lessQty(TextView txtQty, Button btnLess, int position){
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Drug drug = this.drugList.get(position);
         holder.drugName.setText(drug.getDci());
-//        holder.txtQuantity.setText(Integer.toString(drug.getQuantityOrder()));
-        holder.txtQuantity.setText(0);
+        holder.txtQuantity.setText(Integer.toString(order.getDrugQuantity(drug)));
         deleteItem(holder.btnDelete, position);
         plusQty(holder.txtQuantity, holder.btnPlus, position);
         lessQty(holder.txtQuantity, holder.btnLess, position);
-
     }
 
     @Override
@@ -100,8 +95,6 @@ private void lessQty(TextView txtQty, Button btnLess, int position){
         Button btnLess;
         TextView txtQuantity;
 
-        //TextView drugName;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -110,6 +103,13 @@ private void lessQty(TextView txtQty, Button btnLess, int position){
             btnPlus = itemView.findViewById(R.id.plus_btn);
             btnLess = itemView.findViewById(R.id.less_btn);
             txtQuantity = itemView.findViewById(R.id.qty);
+        }
+    }
+
+    // obligé sinon cela plante dans le onbindViewHolder car la quantité est null
+    public void initializeMap(){
+        for (Drug drug: drugList) {
+            order.setDrugQuantity(drug, 0);
         }
     }
 }

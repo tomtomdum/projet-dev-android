@@ -14,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.inf1030_tp1.Models.Drug;
+import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.fragments.HomeFragment;
 import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
 
 import java.util.ArrayList;
@@ -24,14 +26,14 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
     private ArrayList<Drug> drugList = new ArrayList<>();
     private ArrayList<Drug> drugListCopy; // copie de la liste originale, utilisee pour filtrer le resutlat de recherche
     private Consumer<Drug> consumer;
-
     private LayoutInflater inflater;
-
+    private Order order = new Order("test");
     public DrugAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
         this.inflater = LayoutInflater.from(context);
         this.drugList = list;
         drugListCopy = new ArrayList<>(list);
         this.consumer = consumer;
+        HomeFragment.orders.add(order);
     }
 
 //    public class ViewHolder extends RecyclerView.ViewHolder {
@@ -79,7 +81,9 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
 
         viewHolder.itemView.setOnClickListener(listener -> {
             consumer.accept(drugList.get(position));
-            ChooseOrder.setDrugList(drug);
+            if(!order.itemIsInTheList(drug)){
+                order.addDrug(drug);
+            }
             Toast.makeText(listener.getContext(), "Drug Added to cart", Toast.LENGTH_LONG).show();
         });
     }

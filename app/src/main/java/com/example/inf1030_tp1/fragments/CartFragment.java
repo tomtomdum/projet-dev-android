@@ -18,6 +18,7 @@ import android.widget.Button;
 
 import com.example.inf1030_tp1.Adapters.OrderListCartAdapter;
 import com.example.inf1030_tp1.Models.Drug;
+import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.Activities.UserManagerActivity;
 import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
@@ -42,9 +43,10 @@ public class CartFragment extends Fragment {
     private OrderListCartAdapter mOrderListCartAdapter;
     private List<Drug> drugCartList;
     private Button btnDelete;
+    private Order order;
     //private SharedPreferences mPreferences ;
-    public CartFragment() {
-        // Required empty public constructor
+    public CartFragment(Order order) {
+        this.order = order;
     }
 
     /**
@@ -56,8 +58,8 @@ public class CartFragment extends Fragment {
      * @return A new instance of fragment CartFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CartFragment newInstance(String param1, String param2) {
-        CartFragment fragment = new CartFragment();
+    public static CartFragment newInstance(String param1, String param2, Order order) {
+        CartFragment fragment = new CartFragment(order);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -120,7 +122,7 @@ public class CartFragment extends Fragment {
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
 //        recyclerView.addItemDecoration(dividerItemDecoration);
 
-        mOrderListCartAdapter = new OrderListCartAdapter(getActivity(),ChooseOrder.drugList);
+        mOrderListCartAdapter = new OrderListCartAdapter(getActivity(), order.getDrugs(), order);
         recyclerView.setAdapter(mOrderListCartAdapter);
     }
 }

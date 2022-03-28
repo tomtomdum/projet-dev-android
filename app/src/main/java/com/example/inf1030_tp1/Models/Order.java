@@ -4,7 +4,10 @@ package com.example.inf1030_tp1.Models;
 import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class Order {
@@ -13,7 +16,10 @@ public class Order {
     @PrimaryKey
     private String id;
     private String mOrderName;
-    private List<Drug> drugs;
+    private ArrayList<Drug> drugs = new ArrayList<>();
+    private Map<Drug, Integer> drugQuantity = new HashMap<>();
+
+
 
     public Order(String mOrderName){
         super();
@@ -42,8 +48,27 @@ public class Order {
         return drugs;
     }
 
-    public void setDrugs(List<Drug> drugs) {
+    public void setDrugs(ArrayList<Drug> drugs) {
         this.drugs = drugs;
+    }
 
+    public void addDrug(Drug drug){
+        drugs.add(drug);
+    }
+
+    public int getDrugQuantity(Drug drug) {
+       return drugQuantity.get(drug);
+    }
+
+    public void setDrugQuantity(Drug drug, int quantity) {
+        drugQuantity.put(drug,quantity);
+    }
+
+    public boolean itemIsInTheList(Drug drug){
+        for (Drug currentDrug: drugs) {
+            if(currentDrug.equals(drug))
+                return true;
+        }
+        return false;
     }
 }
