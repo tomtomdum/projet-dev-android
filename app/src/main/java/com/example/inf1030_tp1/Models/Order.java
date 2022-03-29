@@ -56,6 +56,11 @@ public class Order {
         drugs.add(drug);
     }
 
+    public void removeDrug(Drug drug){
+        drugs.remove(drug);
+        drugQuantity.remove(drug);
+    }
+
     public int getDrugQuantity(Drug drug) {
        return drugQuantity.get(drug);
     }

@@ -32,19 +32,15 @@ import java.util.List;
  */
 public class CartFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
     private OrderListCartAdapter mOrderListCartAdapter;
-    private List<Drug> drugCartList;
-    private Button btnDelete;
     private Order order;
-    //private SharedPreferences mPreferences ;
     public CartFragment(Order order) {
         this.order = order;
     }
@@ -80,13 +76,6 @@ public class CartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.fragment_cart, container, false);
-//        // Inflate the layout for this fragment
-//       TextView tv =  mView.findViewById(R.id.tvText);
-//       int sizeList = ChooseOrder.drugList.size();
-//       tv.setText(Integer.toString(sizeList));
-        //Log.i("List Drug", "SIZE : " + ChooseOrder.drugList.size());
-
-        //getActivity().getSharedPreferences(ChooseOrder.SHARED_PREF_USER_INFO, Context.MODE_PRIVATE);
 
         initRecyclerView(mView);
 
@@ -101,13 +90,8 @@ public class CartFragment extends Fragment {
         mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getActivity(),"OKKKK",Toast.LENGTH_SHORT).show();
                String userName = getActivity().getSharedPreferences(ChooseOrder.SHARED_PREF_USER_INFO,Context.MODE_PRIVATE).getString(ChooseOrder.SHARED_PREF_USER_INFO_NAME,null);
                 if(userName == null){
-//                    AppCompatActivity activity = (AppCompatActivity)view.getContext();
-//                    LoginFragment userFragment = new LoginFragment();
-//                    activity.getSupportFragmentManager().beginTransaction()
-//                            .replace(R.id.fragment_container_main,userFragment).commit();
                     Intent intent = new Intent(getActivity(), UserManagerActivity.class);
                     startActivity(intent);
                 }
@@ -118,9 +102,6 @@ public class CartFragment extends Fragment {
     private void initRecyclerView(View mView){
         RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-//        recyclerView.addItemDecoration(dividerItemDecoration);
 
         mOrderListCartAdapter = new OrderListCartAdapter(getActivity(), order.getDrugs(), order);
         recyclerView.setAdapter(mOrderListCartAdapter);

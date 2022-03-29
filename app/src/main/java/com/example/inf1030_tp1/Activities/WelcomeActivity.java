@@ -12,7 +12,6 @@ import com.example.inf1030_tp1.fragments.welcome.WelcomeFragment;
 
 public class WelcomeActivity extends AppCompatActivity {
     private ActivityWelcomeBinding binding;
-    private Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

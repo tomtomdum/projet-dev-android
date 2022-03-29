@@ -66,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // ----
-
     private void configureToolbar(){
         // Get the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

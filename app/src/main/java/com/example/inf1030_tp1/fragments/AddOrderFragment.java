@@ -85,11 +85,6 @@ public class AddOrderFragment extends Fragment {
         // Inflate the layout for this fragment
          mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
         setUpSearchView();
-//        populateList();
-        initRecyclerView(mView);
-
-
-//        ActionBar ba = getSupport
         return mView;
     }
 
@@ -98,9 +93,6 @@ public class AddOrderFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_drug_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-//        recyclerView.addItemDecoration(dividerItemDecoration);
 
         viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
         viewModel.liveAll().observe(getActivity(), drugs -> {
@@ -127,30 +119,5 @@ public class AddOrderFragment extends Fragment {
                 return false;
             }
         });
-    }
-
-    private void populateList(){
-//        for (int i =0; i<4; i++){
-//            drugList.add(new Drug("pillule" + i, "goute pas bon"));
-//        }
-    }
-
-    private void initRecyclerView(View mView){
-//        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_drug_list);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//
-////        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-////        recyclerView.addItemDecoration(dividerItemDecoration);
-//
-//        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
-//        viewModel.liveAll().observe(getActivity(), drugs -> {
-//            mDrugListAdapter = new DrugAdapter(getActivity(), (ArrayList<Drug>) drugs, drug -> {
-//                //Todo implementer une action faisant la selection
-//            });
-//            Log.i("info", "testfffff: "+ mDrugListAdapter);
-//            recyclerView.setAdapter(mDrugListAdapter);
-//        });
-//        mDrugListAdapter = new DrugAdapter(getActivity(),drugList);
-//        recyclerView.setAdapter(mDrugListAdapter);
     }
 }

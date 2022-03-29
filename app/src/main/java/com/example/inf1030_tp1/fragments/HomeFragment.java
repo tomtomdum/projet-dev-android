@@ -80,7 +80,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
          mView = inflater.inflate(R.layout.fragment_home, container, false);
 
         setUpSearchView();
@@ -88,7 +87,6 @@ public class HomeFragment extends Fragment {
 
         //function in order to open a new fragment
         openAddOrderFragement(mView);
-        initRecyclerView(mView);
         return mView;
     }
 
@@ -100,9 +98,6 @@ public class HomeFragment extends Fragment {
 
         RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-//        recyclerView.addItemDecoration(dividerItemDecoration);
 
         orderListAdapter = new OrderListAdapter(getActivity());
         Log.i("info", "testfffff: "+ orderListAdapter);
@@ -126,35 +121,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-//    private void setUpSearchView1(){
-//        searchView = mView.findViewById(R.id.search_view);
-//        searchView.clearFocus();
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String s) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                filterList(s);
-//                return true;
-//            }
-//        });
-//    }
-//    private void filterList(String text) {
-//        List<Order> filteredList = new ArrayList<>();
-//        for(Order order: orderList){
-//            if(order.getOrderName().toLowerCase().contains(text.toLowerCase())){
-//                filteredList.add(order);
-//            }
-//        }
-//        if(filteredList.isEmpty()){
-//            Toast.makeText(getActivity(),"No data found", Toast.LENGTH_LONG).show();
-//        }else{
-//            orderListAdapter.setFilteredList(filteredList);
-//        }
-//    }
 
     private void openAddOrderFragement(View v){
         v.findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
@@ -167,18 +133,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    private void initRecyclerView(View mView){
-//        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//
-////        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-////        recyclerView.addItemDecoration(dividerItemDecoration);
-//
-//        orderListAdapter = new OrderListAdapter(getActivity());
-//        Log.i("info", "testfffff: "+ orderListAdapter);
-//        recyclerView.setAdapter(orderListAdapter);
-    }
-
 
     private void loadUserList(){
        // AppDataBase db = AppDataBase.getDbInstance(this.getApplicationContext());

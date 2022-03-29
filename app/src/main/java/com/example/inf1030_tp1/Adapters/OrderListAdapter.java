@@ -96,7 +96,6 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView orderName;
-        //TextView drugName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -109,7 +108,6 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
             });
 
             orderName = (TextView) itemView.findViewById(R.id.order_name);
-            //description = (TextView) itemView.findViewById(R.id.description);
 
         }
     }
