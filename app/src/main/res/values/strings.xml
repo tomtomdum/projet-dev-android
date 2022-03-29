@@ -15,4 +15,5 @@
     <string name="get_started">GET STARTED ></string>
     <string name="welcome_description" >Find drugs easily and fast</string>
     <string name="welcome">welcome</string>
+    <string name="order">Order</string>
 </resources>

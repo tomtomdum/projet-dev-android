@@ -42,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.toolbar_menu_cart:
                 // User chose the "Settings" item, show the app settings UI...
                 /*
-                on va chercher la liste static qui contient tous les orders en avoir qu'une seule et
-                unique dans tout l'application. Dance ce cas si on utilise la derniere créé à fin de
+                on va chercher la liste static qui contient tous les orders nous en avons qu'une seule et
+                unique dans tout l'application. Dans ce cas si on utilise la derniere créé à fin de
                 test, mais avec la liste facilement acessible, nous pourront implémenter plus tard un
                 moyen de selectionner quelle Order que nous voulons accéder au panier
                  */
-                CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(HomeFragment.orders.size()-1));
+                int dernierElementDeLaListe = HomeFragment.orders.size()-1;
+                CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(dernierElementDeLaListe));
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container_main,cartFragment).commit();
                 return true;

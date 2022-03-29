@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
                 android:textSize="@dimen/tv_title_3_size"
                 android:background="@drawable/button_search"
-            android:text="Search"
+            android:text="@string/order"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 style="?android:attr/borderlessButtonStyle"
