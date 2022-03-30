@@ -17,25 +17,28 @@ import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.HomeFragment;
+
 import com.example.inf1030_tp1.fragments.utils.Utils;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> implements Filterable {
     private ArrayList<Drug> drugList = new ArrayList<>();
+
     private ArrayList<Drug> drugListCopy; // copie de la liste originale, utilisee pour filtrer le resutlat de recherche
     private Consumer<Drug> consumer;
     private LayoutInflater inflater;
 
     private Order order = new Order("test");
 
+
     public DrugAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
         this.inflater = LayoutInflater.from(context);
         this.drugList = list;
         drugListCopy = new ArrayList<>(list);
         this.consumer = consumer;
-
         //HomeFragment.orders.add(order);
         /*I added a order object into a static order object who
         is in Utils class instead to add it into a list
@@ -43,8 +46,6 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
         Utils.sOrder = order;
 
     }
-
-
 
     // inflates the row layout from xml when needed
     @NonNull
@@ -73,6 +74,7 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
                 order.addDrug(drug);
             }
             Toast.makeText(listener.getContext(), "Drug Added to cart", Toast.LENGTH_SHORT).show();
+
         });
     }
 
@@ -132,33 +134,5 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
 
         }
 
-//        public void showPopup(View view) {
-//            PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
-//            popupMenu.setOnMenuItemClickListener(this);
-//            popupMenu.inflate(R.menu.context_menu_recycler_view);
-//            popupMenu.show();
-//        }
-
-//
-//        @Override
-//        public boolean onMenuItemClick(MenuItem menuItem) {
-//            switch (menuItem.getItemId()) {
-//                case R.id.options_add:
-//                    for (long i =0; i<999; i++){
-//                        drugList.add(new Drug("pormme", "ses bons quand ses pas trop surettaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-//                        notifyDataSetChanged();
-//                    }
-//                    return true;
-//
-//                case R.id.options_remove:
-//                    drugList.remove(getPosition());
-//                    notifyDataSetChanged();
-//
-//                    return true;
-//
-//                default:
-//                    return false;
-//            }
-//        }
     }
 }

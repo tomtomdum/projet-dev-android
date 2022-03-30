@@ -1,11 +1,14 @@
 package com.example.inf1030_tp1.fragments.user;
 
+
 import android.content.Context;
 import android.content.Intent;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -20,6 +23,7 @@ import com.example.inf1030_tp1.Activities.MainActivity;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.CartFragment;
 import com.example.inf1030_tp1.fragments.utils.Utils;
+
 import com.example.inf1030_tp1.fragments.welcome.TypeUserFragment;
 
 /**
@@ -28,6 +32,7 @@ import com.example.inf1030_tp1.fragments.welcome.TypeUserFragment;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment {
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +43,7 @@ public class LoginFragment extends Fragment {
     private EditText mPass;
 
     // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -53,7 +59,7 @@ public class LoginFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment LoginFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
@@ -77,8 +83,6 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View mView = inflater.inflate(R.layout.fragment_login, container, false);
-
-
        mView.findViewById(R.id.signup).setOnClickListener(view -> {
                AppCompatActivity activity = (AppCompatActivity)view.getContext();
                SignUpFragment signUpFragment = new SignUpFragment();
@@ -125,4 +129,5 @@ public class LoginFragment extends Fragment {
             }
         });
     }
+
 }

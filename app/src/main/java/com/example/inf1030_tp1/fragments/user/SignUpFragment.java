@@ -1,15 +1,21 @@
 package com.example.inf1030_tp1.fragments.user;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +25,7 @@ import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.CartFragment;
 import com.example.inf1030_tp1.fragments.utils.Utils;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SignUpFragment#newInstance} factory method to
@@ -26,16 +33,18 @@ import com.example.inf1030_tp1.fragments.utils.Utils;
  */
 public class SignUpFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private Button mBtn_register;
     private EditText mEtName, mEtMail, mEtPass, mEtPassConfirm;
+
     public SignUpFragment() {
         // Required empty public constructor
     }
@@ -48,7 +57,7 @@ public class SignUpFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment SignUpFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static SignUpFragment newInstance(String param1, String param2) {
         SignUpFragment fragment = new SignUpFragment();
         Bundle args = new Bundle();
@@ -71,6 +80,7 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View mView = inflater.inflate(R.layout.fragment_sign_up, container, false);
         mView.findViewById(R.id.signin).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,5 +126,7 @@ public class SignUpFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
     }
 }

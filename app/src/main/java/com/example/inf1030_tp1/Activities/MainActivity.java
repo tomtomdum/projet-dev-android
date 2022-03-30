@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,12 +25,15 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding bindingMainActivity;
+
     public static String FragmentName = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindingMainActivity = DataBindingUtil.setContentView(this,R.layout.activity_main);
         setContentView(bindingMainActivity.getRoot());
+
 
 //        Intent intent = getIntent();
 //        String fragmentName = intent.getStringExtra("FRAGMENT_NAME");
@@ -55,14 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.toolbar_menu_cart:
-                // User chose the "Settings" item, show the app settings UI...
-                /*
-                on va chercher la liste static qui contient tous les orders en avoir qu'une seule et
-                unique dans tout l'application. Dance ce cas si on utilise la derniere créé à fin de
-                test, mais avec la liste facilement acessible, nous pourront implémenter plus tard un
-                moyen de selectionner quelle Order que nous voulons accéder au panier
-                 */
-                //CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(HomeFragment.orders.size()-1));
+      //CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(HomeFragment.orders.size()-1));
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container_main,new CartFragment()).commit();
                 return true;
@@ -80,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
-
-    // ----
 
     private void configureToolbar(){
         // Get the toolbar view inside the activity layout

@@ -27,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="18dp">
+
+        android:layout_marginBottom="25dp">
 
             <Button
                 android:id="@+id/btn_search_1"
@@ -35,16 +36,20 @@
             android:layout_height="wrap_content"
                 android:textSize="@dimen/tv_title_3_size"
                 android:background="@drawable/button_search"
-            android:text="SEND"
+
+            android:text="@string/order"
+
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 style="?android:attr/borderlessButtonStyle"
             />
+
         <ImageView
             android:id="@+id/btn_search_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_send"/>
+
     </LinearLayout>
 <!--    <Button-->
 <!--    android:id="@+id/search_btn"-->
