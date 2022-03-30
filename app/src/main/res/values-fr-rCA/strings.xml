@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logIn">Connexion</string>
+    <string name="Search">Rechercher</string>
+    <string name="client">client</string>
+    <string name="pharmacist">pharmacien</string>
+    <string name="signin">Se connecter</string>
+    <string name="password">Mot de passe</string>
+    <string name="email">Courriel</string>
+    <string name="sign_up_text">Vous n\'avez pas de compte?</string>
+    <string name="sign_up">Creer un compte</string>
+    <string name="user_type">Choisir le type d\'utilisateur</string>
+    <string name="get_started">Commencer ></string>
+    <string name="welcome_description" >Trouvez vos médicaments favoris rapidement</string>
+    <string name="welcome">welcome</string>
+</resources>
