@@ -27,7 +27,7 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
         this.context = context;
         this.drugList = drugList;
         this.order = order;
-        initializeMap();
+        //initializeMap();
     }
 
     private void deleteItem(TextView btnDelete, int position){

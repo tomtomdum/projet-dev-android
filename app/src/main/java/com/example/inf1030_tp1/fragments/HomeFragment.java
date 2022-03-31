@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.inf1030_tp1.Adapters.OrderListAdapter;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.fragments.utils.Utils;
 import com.example.inf1030_tp1.fragments.welcome.TypeUserFragment;
 
 import java.util.ArrayList;
@@ -158,6 +159,7 @@ public class HomeFragment extends Fragment {
     private void loadUserList(){
        // AppDataBase db = AppDataBase.getDbInstance(this.getApplicationContext());
         orderList = new ArrayList<>();
+        orderList = Utils.sOrderList;
 //        Order order1 = new Order("Order_09/02/2022");
 //        Order order2 = new Order("Order_10/02/2022");
 //

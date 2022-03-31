@@ -121,7 +121,7 @@ public class CartFragment extends Fragment {
             public void onClick(View view) {
 //                Toast.makeText(getActivity(),"OKKKK",Toast.LENGTH_SHORT).show();
                String userName = getActivity().getSharedPreferences(Utils.SHARED_PREF_USER_INFO,Context.MODE_PRIVATE).getString(Utils.SHARED_PREF_USER_INFO_NAME,null);
-               if(Utils.sOrder.getDrugs().size() == 0){
+               if(Utils.sOrder == null || Utils.sOrder.getDrugs().size() == 0){
                    Toast.makeText(getContext(), "Your Cart is Empty", Toast.LENGTH_LONG).show();
                }else{
                    if(userName == null){
@@ -144,8 +144,9 @@ public class CartFragment extends Fragment {
     private void initRecyclerView(View mView){
         RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_order_list_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        if(order != null)
+            mOrderListCartAdapter = new OrderListCartAdapter(getActivity(), order.getDrugs(), order);
 
-        mOrderListCartAdapter = new OrderListCartAdapter(getActivity(), order.getDrugs(), order);
         recyclerView.setAdapter(mOrderListCartAdapter);
     }
 }

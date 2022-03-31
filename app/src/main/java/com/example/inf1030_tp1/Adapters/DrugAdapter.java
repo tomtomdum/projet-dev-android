@@ -31,7 +31,7 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
     private Consumer<Drug> consumer;
     private LayoutInflater inflater;
 
-    private Order order = new Order("test");
+    private Order order = new Order();
 
 
     public DrugAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
@@ -72,9 +72,9 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
             consumer.accept(drugList.get(position));
             if(!order.itemIsInTheList(drug)){
                 order.addDrug(drug);
+                order.setDrugQuantity(drug,1);
             }
             Toast.makeText(listener.getContext(), "Drug Added to cart", Toast.LENGTH_SHORT).show();
-
         });
     }
 

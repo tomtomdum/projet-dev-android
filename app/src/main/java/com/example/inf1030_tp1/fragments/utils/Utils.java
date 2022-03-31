@@ -12,6 +12,9 @@ public class Utils {
     public static final String SHARED_PREF_USER_TYPE_NAME = "SHARED_PREF_USER_TYPE_NAME";
     public static List<Drug> drugList = new ArrayList<>();
     public static Order sOrder;
+
+    public static List<Order> sOrderList = new ArrayList<>();
+
     public static void setDrugList(Drug drug){
         if(drugList.indexOf(drug) == -1)
             drugList.add(drug);

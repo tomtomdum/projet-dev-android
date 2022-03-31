@@ -10,10 +10,12 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.inf1030_tp1.Adapters.ResultAdapter;
 import com.example.inf1030_tp1.Models.Pharmacy;
 import com.example.inf1030_tp1.R;
+import com.example.inf1030_tp1.fragments.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +33,7 @@ public class ResultFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private ResultAdapter mResultAdapter;
     private List<Pharmacy> mPharmacyList;
+    TextView txtOrderName;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -74,17 +77,10 @@ public class ResultFragment extends Fragment {
         View mView = inflater.inflate(R.layout.fragment_result, container, false);
         mPharmacyList = new ArrayList<>();
         initRecyclerView(mView);
-loadResultSimulate(mView);
-//
-//                    new Handler().postDelayed(new Runnable() {
-//
-//                @Override
-//                public void run() {
-//                    // If this is the last question, ends the game.
-//                    // Else, display the next question.
-//                    initRecyclerView(mView);
-//                    }
-//            }, 2_000);
+        loadResultSimulate(mView);
+
+        txtOrderName = mView.findViewById(R.id.order_name_result_fragment);
+        txtOrderName.setText(Utils.sOrder.getmOrderName());
 
         return mView;
     }
@@ -107,8 +103,14 @@ loadResultSimulate(mView);
        // mView.findViewById(R.id.progressBar).setVisibility(View.GONE);
         //Add order in dataBase
 
-        //After that we put back the static variables at null
+        //Add the pahrmacylist in the order
+        Utils.sOrder.setPharmacyList(mPharmacyList);
 
+        //Add
+        Utils.sOrderList.add(Utils.sOrder);
+
+        //After that we put back the static variables at null
+        Utils.sOrder.removeDrugs();
     }
     private void initRecyclerView(View mView){
         RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_result);
