@@ -44,6 +44,7 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
         is in Utils class instead to add it into a list
          */
         Utils.sOrder = order;
+        notifyDataSetChanged();
 
     }
 
