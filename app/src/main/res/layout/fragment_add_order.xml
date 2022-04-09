@@ -9,15 +9,15 @@
 <!--    <include-->
 <!--        layout="@layout/tool_bar"-->
 <!--        />-->
+
     <include
-        layout="@layout/search_view"
-        />
+
+        layout="@layout/search_view" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_drug_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:id="@+id/recycler_view_drug_list"
-        />
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>

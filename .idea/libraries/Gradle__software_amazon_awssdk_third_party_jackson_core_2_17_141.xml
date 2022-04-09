@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: software.amazon.awssdk:third-party-jackson-core:2.17.141">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/third-party-jackson-core/2.17.141/b367e2433e3379c78c52ffaefa14599ef326cec8/third-party-jackson-core-2.17.141.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/third-party-jackson-core/2.17.141/b367e2433e3379c78c52ffaefa14599ef326cec8/third-party-jackson-core-2.17.141.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/third-party-jackson-core/2.17.141/6ceb04a829a8e098e0b761def62bbf1d8ff83b26/third-party-jackson-core-2.17.141-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/third-party-jackson-core/2.17.141/6ceb04a829a8e098e0b761def62bbf1d8ff83b26/third-party-jackson-core-2.17.141-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/third-party-jackson-core/2.17.141/267eb8193816ef48c33f8dc7b64d5640555fd446/third-party-jackson-core-2.17.141-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/third-party-jackson-core/2.17.141/267eb8193816ef48c33f8dc7b64d5640555fd446/third-party-jackson-core-2.17.141-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

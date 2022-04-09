@@ -1,5 +1,7 @@
 package com.example.inf1030_tp1.Activities;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,12 +23,28 @@ import com.example.inf1030_tp1.databinding.ActivityMainBinding;
 import com.example.inf1030_tp1.fragments.AddOrderFragment;
 import com.example.inf1030_tp1.fragments.CartFragment;
 import com.example.inf1030_tp1.fragments.HomeFragment;
+import com.example.inf1030_tp1.fragments.MapFragment;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding bindingMainActivity;
 
     public static String FragmentName = null;
+//    private ActivityResultLauncher<String> requestPermissionLauncher =
+//            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+//                if (isGranted) {
+//                    // Permission is granted. Continue the action or workflow in your
+//                    // app.
+//                } else {
+//                    // Explain to the user that the feature is unavailable because the
+//                    // features requires a permission that the user has denied. At the
+//                    // same time, respect the user's decision. Don't link to system
+//                    // settings in an effort to convince the user to change their
+//                    // decision.
+//                    Toast.makeText(this,"Permission needed to display the map",Toast.LENGTH_SHORT).show();
+//                }
+//            });
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         selectedFragment = new HomeFragment();
+                        break;
+                    case R.id.map:
+                        selectedFragment = new MapFragment();
                         break;
                     default:
                          selectedFragment = new HomeFragment();

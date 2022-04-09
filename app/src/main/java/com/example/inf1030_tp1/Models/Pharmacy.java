@@ -11,16 +11,18 @@ public class Pharmacy {
 
     @NonNull
     @PrimaryKey
-    private String id;
+    private String id = UUID.randomUUID().toString();
     private String name;
+
     private String street;
     private String municipality;
     private String province;
     private String zipCode;
+    private float lat;
+    private float lon;
 
     public Pharmacy(){
-        super();
-        id = UUID.randomUUID().toString();
+        
     }
 
     public Pharmacy(String name){
@@ -74,5 +76,22 @@ public class Pharmacy {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+
+    public float getLat() {
+        return lat;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public float getLon() {
+        return lon;
+    }
+
+    public void setLon(float lon) {
+        this.lon = lon;
     }
 }

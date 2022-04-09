@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: software.amazon.awssdk:s3:2.17.141">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/s3/2.17.141/d3794b15c02d4e4d948bb7d209293af7aa3eed4d/s3-2.17.141.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/s3/2.17.141/d3794b15c02d4e4d948bb7d209293af7aa3eed4d/s3-2.17.141.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/s3/2.17.141/58f3ad9f58306a974f8a6cafd4334b8d8701e561/s3-2.17.141-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/s3/2.17.141/58f3ad9f58306a974f8a6cafd4334b8d8701e561/s3-2.17.141-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/s3/2.17.141/f8a2d133e299b56d2d38a5182e187a744c32d0dd/s3-2.17.141-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/s3/2.17.141/f8a2d133e299b56d2d38a5182e187a744c32d0dd/s3-2.17.141-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
