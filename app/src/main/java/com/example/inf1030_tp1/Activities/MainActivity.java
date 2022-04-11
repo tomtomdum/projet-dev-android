@@ -24,6 +24,7 @@ import com.example.inf1030_tp1.fragments.AddOrderFragment;
 import com.example.inf1030_tp1.fragments.CartFragment;
 import com.example.inf1030_tp1.fragments.HomeFragment;
 import com.example.inf1030_tp1.fragments.MapFragment;
+import com.example.inf1030_tp1.fragments.ProfilFragment;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
@@ -115,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.map:
                         selectedFragment = new MapFragment();
+                        break;
+                    case R.id.menu_profile:
+                        selectedFragment = new ProfilFragment();
                         break;
                     default:
                          selectedFragment = new HomeFragment();

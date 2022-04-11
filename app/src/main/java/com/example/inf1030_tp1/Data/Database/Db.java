@@ -10,9 +10,13 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.inf1030_tp1.Data.DAO.ClientDAO;
+import com.example.inf1030_tp1.Data.DAO.ConversationDAO;
 import com.example.inf1030_tp1.Data.DAO.DrugDAO;
+import com.example.inf1030_tp1.Data.DAO.MessageDAO;
 import com.example.inf1030_tp1.Models.Client;
+import com.example.inf1030_tp1.Models.Conversation;
 import com.example.inf1030_tp1.Models.Drug;
+import com.example.inf1030_tp1.Models.Message;
 import com.example.inf1030_tp1.R;
 
 import java.io.InputStream;
@@ -22,14 +26,18 @@ import java.util.concurrent.Executors;
     entities = {
             Client.class,
             Drug.class,
+            Message.class,
+            Conversation.class
     },
-        version = 3
+        version = 10
 )
 public abstract class Db extends RoomDatabase {
 
     private static Db instance;
     public abstract ClientDAO clientDAO();
     public abstract DrugDAO drugDAO();
+    public abstract MessageDAO messageDAO();
+    public abstract ConversationDAO ConversationDAO();
 
     public static synchronized Db instance(Context context){
         if(instance == null) {

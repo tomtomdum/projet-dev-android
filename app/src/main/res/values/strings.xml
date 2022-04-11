@@ -13,9 +13,10 @@
     <string name="sign_up">Sign up</string>
     <string name="user_type">Choose user\'s type</string>
     <string name="get_started">GET STARTED ></string>
-
-    <string name="welcome_description" >Find drugs easily and fast</string>
+    <string name="chat_button" translatable="false">Message list</string>
+    <string name="welcome_description">Find drugs easily and fast</string>
     <string name="welcome">welcome</string>
     <string name="order">Order</string>
+    <string name="conversation_title" translatable="false">"Conversation: %1s"</string>
 
 </resources>

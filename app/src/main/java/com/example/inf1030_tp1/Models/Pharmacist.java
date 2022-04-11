@@ -8,29 +8,20 @@ import androidx.room.PrimaryKey;
 import java.util.UUID;
 
 @Entity
-public class Pharmacist {
+public class Pharmacist extends User{
 
     @NonNull
     @PrimaryKey
-    private String id;
-    private String firstName;
-    private String lastName;
+    private String id = UUID.randomUUID().toString();
     private String password;
     @Embedded
     private Pharmacy pharmacy;
+    private String firstName;
+    private String lastName;
 
-    public Pharmacist(){
-        super();
-        id = UUID.randomUUID().toString();
-    }
-
-    @NonNull
-    public String getId() {
-        return id;
-    }
-
-    public void setId(@NonNull String id) {
-        this.id = id;
+    public Pharmacist(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
@@ -47,6 +38,15 @@ public class Pharmacist {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @NonNull
+    public String getId() {
+        return id;
+    }
+
+    public void setId(@NonNull String id) {
+        this.id = id;
     }
 
     public String getPassword() {
