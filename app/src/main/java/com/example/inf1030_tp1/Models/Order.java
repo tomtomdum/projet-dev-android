@@ -20,9 +20,7 @@ public class Order {
     @PrimaryKey
     private String id;
     private String mOrderName;
-//    @Ignore
     private ArrayList<Drug> drugs = new ArrayList<>();
-//    @Ignore
     private Map<Drug, Integer> drugQuantity = new HashMap<>();
 
     public void setDrugQuantity(Map<Drug, Integer> drugQuantity) {

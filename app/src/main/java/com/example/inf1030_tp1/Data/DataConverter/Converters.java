@@ -13,7 +13,15 @@ import java.util.Map;
 
 @ProvidedTypeConverter
 public class Converters {
+/*
+    Ces converters permettent de convertir par exemple une liste de médicaments en liste json pouvant
+    etre enregistré dans la base de donnée.
 
+    Permettent aussi de faire l'inverse et de passer de json au type désiré
+
+    On na pas besoin d'appeler ces méthodes, rooms les utilisent automatiquement quand une liste ou
+    un type non reconnu de base par rooms n'est pas annoté @Null et possede un converter
+ */
     @TypeConverter
     public static ArrayList<Drug> jsonToArrayList(String value) {
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
