@@ -10,8 +10,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.inf1030_tp1.Data.DAO.ClientDAO;
 import com.example.inf1030_tp1.Data.DAO.DrugDAO;
+import com.example.inf1030_tp1.Data.DAO.OrderDAO;
+import com.example.inf1030_tp1.Data.DAO.OrderDrugMappingDAO;
 import com.example.inf1030_tp1.Models.Client;
 import com.example.inf1030_tp1.Models.Drug;
+import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 
 import java.io.InputStream;
@@ -29,6 +32,8 @@ public abstract class Db extends RoomDatabase {
     private static Db instance;
     public abstract ClientDAO clientDAO();
     public abstract DrugDAO drugDAO();
+    public abstract OrderDAO orderDAO();
+    public abstract OrderDrugMappingDAO orderDrugMappingDAO();
 
     public static synchronized Db instance(Context context){
         if(instance == null) {
