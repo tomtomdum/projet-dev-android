@@ -23,18 +23,17 @@ public class Converters {
     @TypeConverter
     public static String arrayListToJson(ArrayList<Drug> list) {
         Gson gson = new Gson();
-        String json = gson.toJson(list);
-        return json;
+        return gson.toJson(list);
     }
 
     @TypeConverter
-    public static Map<?, ?> jsonToMapConverter(String value) {
-        Type mapType = new TypeToken<Map<?, ?>>() {}.getType();
+    public static Map<Drug, Integer> jsonToMapConverter(String value) {
+        Type mapType = new TypeToken<Map<Drug, Integer>>() {}.getType();
         return new Gson().fromJson(value, mapType);
     }
 
     @TypeConverter
-    public static String mapToJsonConverter(Map<?, ?> map) {
+    public static String mapToJsonConverter(Map<Drug, Integer> map) {
         Gson gson = new Gson();
         return gson.toJson(map);
     }

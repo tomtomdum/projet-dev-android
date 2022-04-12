@@ -22,8 +22,13 @@ public class Order {
     private String mOrderName;
 //    @Ignore
     private ArrayList<Drug> drugs = new ArrayList<>();
-    @Ignore
+//    @Ignore
     private Map<Drug, Integer> drugQuantity = new HashMap<>();
+
+    public void setDrugQuantity(Map<Drug, Integer> drugQuantity) {
+        this.drugQuantity = drugQuantity;
+    }
+
     @Ignore
     private List<Pharmacy> mPharmacyList = new ArrayList<>();
     @Ignore
@@ -96,6 +101,10 @@ public class Order {
                 return true;
         }
         return false;
+    }
+
+    public Map<Drug, Integer> getDrugQuantity() {
+        return drugQuantity;
     }
 
     private void generateOrderName(){
