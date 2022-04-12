@@ -6,12 +6,14 @@ import androidx.annotation.RawRes;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.inf1030_tp1.Data.DAO.ClientDAO;
 import com.example.inf1030_tp1.Data.DAO.DrugDAO;
 import com.example.inf1030_tp1.Data.DAO.OrderDAO;
 import com.example.inf1030_tp1.Data.DAO.OrderDrugMappingDAO;
+import com.example.inf1030_tp1.Data.DataConverter.Converters;
 import com.example.inf1030_tp1.Models.Client;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
@@ -30,6 +32,7 @@ import java.util.concurrent.Executors;
     },
         version = 3
 )
+@TypeConverters({Converters.class})
 public abstract class Db extends RoomDatabase {
 
     private static Db instance;

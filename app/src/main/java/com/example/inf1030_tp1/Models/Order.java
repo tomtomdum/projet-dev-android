@@ -20,7 +20,7 @@ public class Order {
     @PrimaryKey
     private String id;
     private String mOrderName;
-    @Ignore
+//    @Ignore
     private ArrayList<Drug> drugs = new ArrayList<>();
     @Ignore
     private Map<Drug, Integer> drugQuantity = new HashMap<>();
@@ -62,7 +62,7 @@ public class Order {
         this.id = id;
     }
 
-    public List<Drug> getDrugs() {
+    public ArrayList<Drug> getDrugs() {
         return drugs;
     }
 
