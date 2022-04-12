@@ -17,8 +17,8 @@ public interface OrderDAO {
     @Query("SELECT * FROM [order] WHERE id = :id")
     LiveData<Order> get(long id);
 
-    @Query("SELECT * FROM [order] WHERE OrderName = :mOrderName")
-    LiveData<Order> getORderName(long mOrderName);
+    @Query("SELECT * FROM [order] WHERE mOrderName = :mOrderName")
+    LiveData<Order> getMOrderName(long mOrderName);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Order order);

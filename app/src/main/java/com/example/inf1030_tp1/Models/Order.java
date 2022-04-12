@@ -2,6 +2,8 @@ package com.example.inf1030_tp1.Models;
 
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDateTime;
@@ -11,17 +13,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
+@Entity
 public class Order {
 
     @NonNull
     @PrimaryKey
     private String id;
     private String mOrderName;
+    @Ignore
     private ArrayList<Drug> drugs = new ArrayList<>();
+    @Ignore
     private Map<Drug, Integer> drugQuantity = new HashMap<>();
+    @Ignore
     private List<Pharmacy> mPharmacyList = new ArrayList<>();
-
+    @Ignore
     public List<Pharmacy> getPharmacyList() {
         return mPharmacyList;
     }
@@ -30,11 +35,11 @@ public class Order {
         mPharmacyList = pharmacyList;
     }
 
-    public Order(String mOrderName){
-        super();
-        id = UUID.randomUUID().toString();
-        this.mOrderName = mOrderName;
-    }
+//    public Order(String mOrderName){
+//        super();
+//        id = UUID.randomUUID().toString();
+//        this.mOrderName = mOrderName;
+//    }
     public Order(){
         super();
         id = UUID.randomUUID().toString();
@@ -45,11 +50,11 @@ public class Order {
         return id;
     }
 
-    public String getmOrderName() {
+    public String getMOrderName() {
         return mOrderName;
     }
 
-    public void setmOrderName(String mOrderName) {
+    public void setMOrderName(String mOrderName) {
         this.mOrderName = mOrderName;
     }
 
