@@ -14,12 +14,4 @@ public class ChooseOrder {
         if(drugList.indexOf(drug) == -1)
             drugList.add(drug);
     }
-    public static void setOrderQuantity(int quantity, int position){
-//        Drug drug = drugList.get(position);
-//        drug.setQuantityOrder(quantity);
-    }
-
-    public static void updateDruglist(){
-
-    }
 }

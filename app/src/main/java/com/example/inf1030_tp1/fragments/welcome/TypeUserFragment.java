@@ -1,6 +1,10 @@
 package com.example.inf1030_tp1.fragments.welcome;
 
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +16,9 @@ import android.view.ViewGroup;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.Activities.MainActivity;
 
+import com.example.inf1030_tp1.fragments.utils.Utils;
+
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link TypeUserFragment#newInstance} factory method to
@@ -19,12 +26,12 @@ import com.example.inf1030_tp1.Activities.MainActivity;
  */
 public class TypeUserFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -65,8 +72,15 @@ public class TypeUserFragment extends Fragment {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_type_user, container, false);
         mView.findViewById(R.id.btn_client).setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
+                SharedPreferences preferences = getActivity().getSharedPreferences(Utils.SHARED_PREF_USER_INFO, Context.MODE_PRIVATE);
+                preferences.edit()
+                .putString(Utils.SHARED_PREF_USER_TYPE_NAME, "client")
+                .apply();
+
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }

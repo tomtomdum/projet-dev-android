@@ -4,6 +4,8 @@ package com.example.inf1030_tp1.Models;
 import androidx.annotation.NonNull;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,15 +20,26 @@ public class Order {
     private String mOrderName;
     private ArrayList<Drug> drugs = new ArrayList<>();
     private Map<Drug, Integer> drugQuantity = new HashMap<>();
+    private List<Pharmacy> mPharmacyList = new ArrayList<>();
 
+    public List<Pharmacy> getPharmacyList() {
+        return mPharmacyList;
+    }
 
+    public void setPharmacyList(List<Pharmacy> pharmacyList) {
+        mPharmacyList = pharmacyList;
+    }
 
     public Order(String mOrderName){
         super();
         id = UUID.randomUUID().toString();
         this.mOrderName = mOrderName;
     }
-
+    public Order(){
+        super();
+        id = UUID.randomUUID().toString();
+        this.generateOrderName();
+    }
     @NonNull
     public String getId() {
         return id;
@@ -56,6 +69,14 @@ public class Order {
         drugs.add(drug);
     }
 
+    public void removeDrugs(){
+        this.drugs.removeAll(this.drugs);
+    }
+    public void removeDrug(Drug drug){
+        drugs.remove(drug);
+        drugQuantity.remove(drug);
+    }
+
     public int getDrugQuantity(Drug drug) {
        return drugQuantity.get(drug);
     }
@@ -70,5 +91,11 @@ public class Order {
                 return true;
         }
         return false;
+    }
+
+    private void generateOrderName(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        this.mOrderName = "ORDER_"+dtf.format(now);
     }
 }

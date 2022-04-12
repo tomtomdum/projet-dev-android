@@ -25,6 +25,7 @@ import java.util.concurrent.Executors;
         version = 3
 )
 public abstract class Db extends RoomDatabase {
+
     private static Db instance;
     public abstract ClientDAO clientDAO();
     public abstract DrugDAO drugDAO();

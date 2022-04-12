@@ -23,6 +23,10 @@ public class Pharmacy {
         id = UUID.randomUUID().toString();
     }
 
+    public Pharmacy(String name){
+       this.name = name;
+    }
+
     @NonNull
     public String getId() {
         return id;

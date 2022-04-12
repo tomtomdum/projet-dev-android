@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Inf1030tp1">
         <activity
-            android:name=".Activities.DrugListActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activities.UserManagerActivity"
             android:exported="false" />
         <activity

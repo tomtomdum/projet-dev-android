@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
-import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
 
-import java.util.ArrayList;
+import com.example.inf1030_tp1.fragments.utils.Utils;
+
 import java.util.List;
 
 public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdapter.ViewHolder>{
@@ -28,7 +27,7 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
         this.context = context;
         this.drugList = drugList;
         this.order = order;
-        initializeMap();
+        //initializeMap();
     }
 
     private void deleteItem(TextView btnDelete, int position){
@@ -37,7 +36,7 @@ public class OrderListCartAdapter extends RecyclerView.Adapter<OrderListCartAdap
             @Override
             public void onClick(View view) {
                 drugList.remove(position);
-                ChooseOrder.drugList = drugList;
+                Utils.drugList = drugList;
                 notifyDataSetChanged();
             }
         });

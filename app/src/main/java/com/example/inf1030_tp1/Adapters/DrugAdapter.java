@@ -17,46 +17,36 @@ import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.HomeFragment;
-import com.example.inf1030_tp1.fragments.utils.ChooseOrder;
+
+import com.example.inf1030_tp1.fragments.utils.Utils;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> implements Filterable {
     private ArrayList<Drug> drugList = new ArrayList<>();
+
     private ArrayList<Drug> drugListCopy; // copie de la liste originale, utilisee pour filtrer le resutlat de recherche
     private Consumer<Drug> consumer;
     private LayoutInflater inflater;
-    private Order order = new Order("test");
+
+    private Order order = new Order();
+
+
     public DrugAdapter(Context context, ArrayList<Drug> list, Consumer<Drug> consumer){
         this.inflater = LayoutInflater.from(context);
         this.drugList = list;
         drugListCopy = new ArrayList<>(list);
         this.consumer = consumer;
-        HomeFragment.orders.add(order);
-    }
+        //HomeFragment.orders.add(order);
+        /*I added a order object into a static order object who
+        is in Utils class instead to add it into a list
+         */
+        Utils.sOrder = order;
+        notifyDataSetChanged();
 
-//    public class ViewHolder extends RecyclerView.ViewHolder {
-//        TextView description;
-//        TextView drugName;
-//
-//        public ViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//
-//            itemView.setOnClickListener(listener -> {
-//                new Consumer() {
-//                    @Override
-//                    public void accept(Object o) {
-//
-//                    }
-//                };
-//            });
-//
-//            drugName = (TextView) itemView.findViewById(R.id.nom_item);
-//            description = (TextView) itemView.findViewById(R.id.description);
-//
-//        }
-//    }
+    }
 
     // inflates the row layout from xml when needed
     @NonNull
@@ -83,8 +73,9 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
             consumer.accept(drugList.get(position));
             if(!order.itemIsInTheList(drug)){
                 order.addDrug(drug);
+                order.setDrugQuantity(drug,1);
             }
-            Toast.makeText(listener.getContext(), "Drug Added to cart", Toast.LENGTH_LONG).show();
+            Toast.makeText(listener.getContext(), "Drug Added to cart", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -144,33 +135,5 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
 
         }
 
-//        public void showPopup(View view) {
-//            PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
-//            popupMenu.setOnMenuItemClickListener(this);
-//            popupMenu.inflate(R.menu.context_menu_recycler_view);
-//            popupMenu.show();
-//        }
-
-//
-//        @Override
-//        public boolean onMenuItemClick(MenuItem menuItem) {
-//            switch (menuItem.getItemId()) {
-//                case R.id.options_add:
-//                    for (long i =0; i<999; i++){
-//                        drugList.add(new Drug("pormme", "ses bons quand ses pas trop surettaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-//                        notifyDataSetChanged();
-//                    }
-//                    return true;
-//
-//                case R.id.options_remove:
-//                    drugList.remove(getPosition());
-//                    notifyDataSetChanged();
-//
-//                    return true;
-//
-//                default:
-//                    return false;
-//            }
-//        }
     }
 }
