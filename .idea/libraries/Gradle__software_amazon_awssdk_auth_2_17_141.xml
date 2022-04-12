@@ -2,12 +2,15 @@
   <library name="Gradle: software.amazon.awssdk:auth:2.17.141">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/auth/2.17.141/3b34a4e5ee3d7c05ca82d5eb704f774183b62f6b/auth-2.17.141.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/auth/2.17.141/3b34a4e5ee3d7c05ca82d5eb704f774183b62f6b/auth-2.17.141.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/auth/2.17.141/4f0306c9d3a69c9b014a075fe58046cb6e7f4011/auth-2.17.141-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/auth/2.17.141/4f0306c9d3a69c9b014a075fe58046cb6e7f4011/auth-2.17.141-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/auth/2.17.141/9b362bb18ad2c31280b17b8c233547e60b5b1499/auth-2.17.141-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/auth/2.17.141/9b362bb18ad2c31280b17b8c233547e60b5b1499/auth-2.17.141-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
