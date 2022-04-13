@@ -7,6 +7,8 @@ import com.example.inf1030_tp1.Models.Drug;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONObject;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
@@ -24,7 +26,7 @@ public class Converters {
  */
     @TypeConverter
     public static ArrayList<Drug> jsonToArrayList(String value) {
-        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<Object>>() {}.getType();
         return new Gson().fromJson(value, listType);
     }
 
@@ -36,7 +38,7 @@ public class Converters {
 
     @TypeConverter
     public static Map<Drug, Integer> jsonToMapConverter(String value) {
-        Type mapType = new TypeToken<Map<Drug, Integer>>() {}.getType();
+        Type mapType = new TypeToken<Map<Object, Object>>() {}.getType();
         return new Gson().fromJson(value, mapType);
     }
 

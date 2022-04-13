@@ -11,13 +11,16 @@ import com.example.inf1030_tp1.Models.Order;
 import java.util.List;
 @Dao
 public interface OrderDAO {
-    @Query("SELECT * FROM [order]")
+    @Query("SELECT * FROM `Order`")
     LiveData<List<Order>> getAll();
 
-    @Query("SELECT * FROM [order] WHERE id = :id")
+    @Query("SELECT * FROM `Order`")
+    List<Order> getAlla();
+
+    @Query("SELECT * FROM 'Order' WHERE id = :id")
     LiveData<Order> get(long id);
 
-    @Query("SELECT * FROM [order] WHERE mOrderName = :mOrderName")
+    @Query("SELECT * FROM 'Order' WHERE mOrderName = :mOrderName")
     LiveData<Order> getMOrderName(long mOrderName);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
