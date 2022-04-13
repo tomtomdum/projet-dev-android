@@ -26,7 +26,7 @@ public class Converters {
  */
     @TypeConverter
     public static ArrayList<Drug> jsonToArrayList(String value) {
-        Type listType = new TypeToken<ArrayList<Object>>() {}.getType();
+        Type listType = new TypeToken<ArrayList<Drug>>() {}.getType();
         return new Gson().fromJson(value, listType);
     }
 
@@ -38,7 +38,7 @@ public class Converters {
 
     @TypeConverter
     public static Map<Drug, Integer> jsonToMapConverter(String value) {
-        Type mapType = new TypeToken<Map<Object, Object>>() {}.getType();
+        Type mapType = new TypeToken<Map<Object, Integer>>() {}.getType();
         return new Gson().fromJson(value, mapType);
     }
 
