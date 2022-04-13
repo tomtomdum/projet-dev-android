@@ -22,11 +22,6 @@ public class Order {
     private String mOrderName;
     private ArrayList<Drug> drugs = new ArrayList<>();
     private Map<Drug, Integer> drugQuantity = new HashMap<>();
-
-    public void setDrugQuantity(Map<Drug, Integer> drugQuantity) {
-        this.drugQuantity = drugQuantity;
-    }
-
     @Ignore
     private List<Pharmacy> mPharmacyList = new ArrayList<>();
     @Ignore
@@ -85,12 +80,22 @@ public class Order {
         drugQuantity.remove(drug);
     }
 
-    public int getDrugQuantity(Drug drug) {
-       return drugQuantity.get(drug);
-    }
 
     public void setDrugQuantity(Drug drug, int quantity) {
         drugQuantity.put(drug,quantity);
+    }
+
+    public int getDrugQuantity(Drug drug) {
+        return drugQuantity.get(drug);
+    }
+
+
+    public void setDrugQuantity(Map<Drug, Integer> drugQuantity) {
+        this.drugQuantity = drugQuantity;
+    }
+
+    public Map<Drug, Integer> getDrugQuantity() {
+        return drugQuantity;
     }
 
     public boolean itemIsInTheList(Drug drug){
@@ -101,9 +106,7 @@ public class Order {
         return false;
     }
 
-    public Map<Drug, Integer> getDrugQuantity() {
-        return drugQuantity;
-    }
+
 
     private void generateOrderName(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
