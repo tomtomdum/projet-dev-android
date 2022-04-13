@@ -17,6 +17,7 @@ import com.example.inf1030_tp1.Models.Pharmacy;
 import com.example.inf1030_tp1.R;
 
 public class NotificationHelper extends ContextWrapper {
+    private int resquestId = 0;
 
     public static final String results_channel_id = "resultsChannel";
     NotificationManager manager;
@@ -33,7 +34,7 @@ public class NotificationHelper extends ContextWrapper {
                 .setContentTitle(title)
                 .setContentTitle(pharmacie.getName() + " " + content)
                 .setSmallIcon(R.drawable.ic_baseline_local_pharmacy_24);
-        manager.notify(1, notif.build());
+        manager.notify(resquestId++, notif.build());
     }
 
     public void createNotificationChannel() {
