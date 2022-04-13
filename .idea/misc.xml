@@ -3,8 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/drawable/ic_baseline_local_pharmacy_24.xml" value="0.114" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.114" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.114" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.114" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/drawable/ic_send.xml" value="0.114" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/drawable/ic_shopping_cart_24.xml" value="0.114" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/drawable/item_radius_order.xml" value="0.114" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/activity_login.xml" value="0.1685185185185185" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/activity_login_page.xml" value="0.37864583333333335" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/activity_main.xml" value="0.1685185185185185" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/activity_user_manager.xml" value="0.37864583333333335" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/activity_welcome.xml" value="0.37864583333333335" />
         <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/drug_list_prototype.xml" value="0.24322916666666666" />
         <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/fragment_add_order.xml" value="0.24375" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/fragment_login.xml" value="0.1685185185185185" />
+        <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/fragment_type_user.xml" value="0.1685185185185185" />
         <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/layout/order_list_item.xml" value="0.2" />
         <entry key="..\:/Documents/repo_git/inf1030-tp1/app/src/main/res/menu/toolbar_menu.xml" value="0.10277777777777777" />
         <entry key="..\:/UQTR_PROJECTS/Nouveau dossier/INF1030-tp-dev-android-develop-f97eb7f37526a7910c57f1fbce0d4399551f276a/app/src/main/res/drawable/ic_send.xml" value="0.1" />
