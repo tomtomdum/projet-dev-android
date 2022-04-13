@@ -34,10 +34,9 @@ public class NotificationHelper extends ContextWrapper {
                 .setContentTitle(pharmacie.getName() + " " + content)
                 .setSmallIcon(R.drawable.ic_baseline_local_pharmacy_24);
         manager.notify(1, notif.build());
-
     }
 
-    public void createNotificationChannel(Pharmacy pharmacie) {
+    public void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = getResources().getString(R.string.request_channel);
             String content = getResources().getString(R.string.request_channel_desc);
@@ -48,7 +47,7 @@ public class NotificationHelper extends ContextWrapper {
             // enregistre le channel dans le systeme
             manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
-            sendResultNotification(pharmacie);
+
         }
     }
 
