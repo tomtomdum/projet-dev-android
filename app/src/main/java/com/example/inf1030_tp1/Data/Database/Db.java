@@ -6,12 +6,16 @@ import androidx.annotation.RawRes;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.inf1030_tp1.Data.DAO.ClientDAO;
 import com.example.inf1030_tp1.Data.DAO.DrugDAO;
+import com.example.inf1030_tp1.Data.DAO.OrderDAO;
+import com.example.inf1030_tp1.Data.DataConverter.Converters;
 import com.example.inf1030_tp1.Models.Client;
 import com.example.inf1030_tp1.Models.Drug;
+import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 
 import java.io.InputStream;
@@ -21,14 +25,17 @@ import java.util.concurrent.Executors;
     entities = {
             Client.class,
             Drug.class,
+            Order.class,
     },
         version = 3
 )
+@TypeConverters({Converters.class})
 public abstract class Db extends RoomDatabase {
 
     private static Db instance;
     public abstract ClientDAO clientDAO();
     public abstract DrugDAO drugDAO();
+    public abstract OrderDAO orderDAO();
 
     public static synchronized Db instance(Context context){
         if(instance == null) {

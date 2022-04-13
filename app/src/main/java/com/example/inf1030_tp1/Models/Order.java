@@ -2,6 +2,8 @@ package com.example.inf1030_tp1.Models;
 
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDateTime;
@@ -11,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
+@Entity
 public class Order {
 
     @NonNull
@@ -20,8 +22,9 @@ public class Order {
     private String mOrderName;
     private ArrayList<Drug> drugs = new ArrayList<>();
     private Map<Drug, Integer> drugQuantity = new HashMap<>();
+    @Ignore
     private List<Pharmacy> mPharmacyList = new ArrayList<>();
-
+    @Ignore
     public List<Pharmacy> getPharmacyList() {
         return mPharmacyList;
     }
@@ -30,11 +33,11 @@ public class Order {
         mPharmacyList = pharmacyList;
     }
 
-    public Order(String mOrderName){
-        super();
-        id = UUID.randomUUID().toString();
-        this.mOrderName = mOrderName;
-    }
+//    public Order(String mOrderName){
+//        super();
+//        id = UUID.randomUUID().toString();
+//        this.mOrderName = mOrderName;
+//    }
     public Order(){
         super();
         id = UUID.randomUUID().toString();
@@ -45,11 +48,11 @@ public class Order {
         return id;
     }
 
-    public String getmOrderName() {
+    public String getMOrderName() {
         return mOrderName;
     }
 
-    public void setmOrderName(String mOrderName) {
+    public void setMOrderName(String mOrderName) {
         this.mOrderName = mOrderName;
     }
 
@@ -57,7 +60,7 @@ public class Order {
         this.id = id;
     }
 
-    public List<Drug> getDrugs() {
+    public ArrayList<Drug> getDrugs() {
         return drugs;
     }
 
@@ -77,12 +80,22 @@ public class Order {
         drugQuantity.remove(drug);
     }
 
-    public int getDrugQuantity(Drug drug) {
-       return drugQuantity.get(drug);
-    }
 
     public void setDrugQuantity(Drug drug, int quantity) {
         drugQuantity.put(drug,quantity);
+    }
+
+    public int getDrugQuantity(Drug drug) {
+        return drugQuantity.get(drug);
+    }
+
+
+    public void setDrugQuantity(Map<Drug, Integer> drugQuantity) {
+        this.drugQuantity = drugQuantity;
+    }
+
+    public Map<Drug, Integer> getDrugQuantity() {
+        return drugQuantity;
     }
 
     public boolean itemIsInTheList(Drug drug){
@@ -92,6 +105,8 @@ public class Order {
         }
         return false;
     }
+
+
 
     private void generateOrderName(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

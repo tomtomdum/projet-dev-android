@@ -80,7 +80,7 @@ public class ResultFragment extends Fragment {
         loadResultSimulate(mView);
 
         txtOrderName = mView.findViewById(R.id.order_name_result_fragment);
-        txtOrderName.setText(Utils.sOrder.getmOrderName());
+        txtOrderName.setText(Utils.sOrder.getMOrderName());
 
         return mView;
     }
