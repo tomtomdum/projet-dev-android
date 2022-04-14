@@ -42,10 +42,10 @@ import java.util.concurrent.Executors;
             Conversation.class,
             User.class,
             Pharmacist.class,
-            Pharmacy.class
+            Pharmacy.class,
             Order.class,
     },
-        version = 13
+        version = 3
 )
 @TypeConverters({Converters.class})
 public abstract class Db extends RoomDatabase {
