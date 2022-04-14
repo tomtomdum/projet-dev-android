@@ -74,6 +74,7 @@ public class ResultFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         notifHelper = new NotificationHelper(getActivity());
+        notifHelper.createNotificationChannel(); // ca va ici ou dans le main ??
     }
 
     @Override
@@ -100,7 +101,7 @@ public class ResultFragment extends Fragment {
                     // Else, display the next question.
                     for(int i = 0; i < 3; i++){
                         mResultAdapter.setPharmacyList(new Pharmacy("Phamaprix "  + i));
-                        notifHelper.createNotificationChannel(mPharmacyList.get(i));
+                        notifHelper.sendResultNotification(new Pharmacy("Phamaprix "  + i));
 
                     }
                     mView.findViewById(R.id.progressBar).setVisibility(View.GONE);
