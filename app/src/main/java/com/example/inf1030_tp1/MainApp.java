@@ -2,6 +2,7 @@ package com.example.inf1030_tp1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.multidex.MultiDexApplication;
 

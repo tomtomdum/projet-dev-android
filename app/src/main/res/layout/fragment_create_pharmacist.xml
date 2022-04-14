@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.CreatePharmacistFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_your_account"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="175dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:id="@+id/create_pharmacist_account_title"
+        />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_text_field"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_pharmacist_account_title"
+        android:layout_marginTop="120dp"
+        android:hint="@string/first_name"
+        android:textAlignment="center"
+        android:inputType="text"
+        android:id="@+id/pharmacist_first_name"
+        android:autofillHints="name"
+        />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_text_field"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pharmacist_first_name"
+        android:layout_marginTop="10dp"
+        android:hint="@string/last_name"
+        android:textAlignment="center"
+        android:inputType="text"
+        android:id="@+id/pharmacist_last_name"
+        android:autofillHints="name"
+        />
+
+    <Spinner
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pharmacist_last_name"
+        android:id="@+id/pharmacy_spinner"
+        android:background="@drawable/edit_text_field"
+        />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary"
+        android:textSize="20sp"
+        android:text="@string/next"
+        android:background="@drawable/button_radius_primary_color"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacy_spinner"
+        android:id="@+id/next_button"
+        />
+
+<!--    <EditText-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:background="@drawable/edit_text_field"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/client_last_name"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:hint="Choose a pharmacy"-->
+<!--        android:textAlignment="center"-->
+<!--        android:inputType="text"-->
+<!--        android:id="@+id/client_address"-->
+<!--        />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

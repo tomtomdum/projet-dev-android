@@ -13,8 +13,8 @@ public class Drug {
 
     @NonNull
     @PrimaryKey
-    private int drugNumber;
-    private int catNumber;
+    private int drugnumber;
+    private int catnumber;
     private String dci;
     private String dosage;
     private String reference;
@@ -33,20 +33,20 @@ public class Drug {
         super();
     }
 
-    public int getDrugNumber() {
-        return drugNumber;
+    public int getDrugnumber() {
+        return drugnumber;
     }
 
-    public void setDrugNumber(int drugNumber) {
-        this.drugNumber = drugNumber;
+    public void setDrugnumber(int drugNumber) {
+        this.drugnumber = drugNumber;
     }
 
-    public int getCatNumber() {
-        return catNumber;
+    public int getCatnumber() {
+        return catnumber;
     }
 
-    public void setCatNumber(int catNumber) {
-        this.catNumber = catNumber;
+    public void setCatnumber(int catNumber) {
+        this.catnumber = catNumber;
     }
 
     public String getDci() {

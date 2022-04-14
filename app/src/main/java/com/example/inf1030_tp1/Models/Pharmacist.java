@@ -3,34 +3,36 @@ package com.example.inf1030_tp1.Models;
 import androidx.annotation.NonNull;
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-@Entity
-public class Pharmacist {
+@Entity(foreignKeys = {@ForeignKey(entity = Pharmacy.class,
+                parentColumns = "id",
+                childColumns = "pharmacyId")
+})
+public class Pharmacist implements Serializable {
 
     @NonNull
     @PrimaryKey
-    private String id;
+    private String id = UUID.randomUUID().toString();
+    private String pharmacyId;
     private String firstName;
     private String lastName;
-    private String password;
-    @Embedded
-    private Pharmacy pharmacy;
 
-    public Pharmacist(){
-        super();
-        id = UUID.randomUUID().toString();
+    public Pharmacist(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    @NonNull
-    public String getId() {
-        return id;
+    public String getPharmacyId() {
+        return pharmacyId;
     }
 
-    public void setId(@NonNull String id) {
-        this.id = id;
+    public void setPharmacyId(String pharmacyId) {
+        this.pharmacyId = pharmacyId;
     }
 
     public String getFirstName() {
@@ -49,19 +51,20 @@ public class Pharmacist {
         this.lastName = lastName;
     }
 
-    public String getPassword() {
-        return password;
+    @NonNull
+    public String getId() {
+        return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setId(@NonNull String id) {
+        this.id = id;
     }
 
-    public Pharmacy getPharmacy() {
-        return pharmacy;
+    public String getPharmacy() {
+        return pharmacyId;
     }
 
-    public void setPharmacy(Pharmacy pharmacy) {
-        this.pharmacy = pharmacy;
+    public void setPharmacy(String pharmacyId) {
+        this.pharmacyId = pharmacyId;
     }
 }

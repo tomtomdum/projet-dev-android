@@ -31,19 +31,61 @@
         <entry key="..\:/UQTR_PROJECTS/Nouveau dossier/INF1030-tp-dev-android-develop-f97eb7f37526a7910c57f1fbce0d4399551f276a/app/src/main/res/layout/fragment_sign_up.xml" value="0.27152988855116517" />
         <entry key="..\:/UQTR_PROJECTS/Nouveau dossier/INF1030-tp-dev-android-develop-f97eb7f37526a7910c57f1fbce0d4399551f276a/app/src/main/res/layout/order_item_result.xml" value="0.1796875" />
         <entry key="..\:/UQTR_PROJECTS/Nouveau dossier/INF1030-tp-dev-android-develop-f97eb7f37526a7910c57f1fbce0d4399551f276a/app/src/main/res/menu/toolbar_menu.xml" value="0.1796875" />
+        <entry key="app/src/main/res/drawable/background_item.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/blackborder.xml" value="0.129" />
+        <entry key="app/src/main/res/drawable/button_quantity_plus.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/button_radius_primary_color.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/button_search.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/button_search_2.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/edit_text_field.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/edit_text_field_error.xml" value="0.242" />
+        <entry key="app/src/main/res/drawable/edit_text_radius.xml" value="0.129" />
+        <entry key="app/src/main/res/drawable/ic_baseline_local_pharmacy_24.xml" value="0.242" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1795" />
+        <entry key="app/src/main/res/drawable/message_bubble.xml" value="0.237" />
+        <entry key="app/src/main/res/drawable/message_bubble_left.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/message_bubble_right.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/sign_up_button.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/textview_border_list.xml" value="0.237" />
         <entry key="app/src/main/res/layout/activity_drug_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.3546195652173913" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19021739130434784" />
+        <entry key="app/src/main/res/layout/activity_user_manager.xml" value="0.2989583333333333" />
+        <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.10643115942028986" />
         <entry key="app/src/main/res/layout/drug_list_prototype.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_add_order.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_add_order.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.19021739130434784" />
+        <entry key="app/src/main/res/layout/fragment_conversation_list.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_create_client.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_create_pharmacist.xml" value="0.19021739130434784" />
+        <entry key="app/src/main/res/layout/fragment_create_user.xml" value="0.3458333333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19021739130434784" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1375" />
+        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/fragment_message_list.xml" value="0.19021739130434784" />
+        <entry key="app/src/main/res/layout/fragment_profil.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/layout/fragment_result.xml" value="0.1859375" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2989583333333333" />
         <entry key="app/src/main/res/layout/fragment_test.xml" value="0.2609375" />
-        <entry key="app/src/main/res/layout/order_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_type_user.xml" value="0.2989583333333333" />
+        <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.2989583333333333" />
+        <entry key="app/src/main/res/layout/order_cart_item.xml" value="0.2989583333333333" />
+        <entry key="app/src/main/res/layout/order_item_result.xml" value="0.2989583333333333" />
+        <entry key="app/src/main/res/layout/order_list_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/proto_conversation.xml" value="0.15625" />
+        <entry key="app/src/main/res/layout/proto_message.xml" value="0.11503623188405797" />
+        <entry key="app/src/main/res/layout/proto_message_droit.xml" value="0.15625" />
+        <entry key="app/src/main/res/layout/proto_message_droite.xml" value="0.11503623188405797" />
+        <entry key="app/src/main/res/layout/proto_message_gauche.xml" value="0.23072916666666668" />
+        <entry key="app/src/main/res/layout/proto_message_left.xml" value="0.1515625" />
+        <entry key="app/src/main/res/layout/search_view.xml" value="0.2989583333333333" />
+        <entry key="app/src/main/res/layout/tool_bar.xml" value="0.2989583333333333" />
+        <entry key="app/src/main/res/menu/app_menu.xml" value="0.2989583333333333" />
         <entry key="app/src/main/res/menu/context_menu.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.3609375" />
         <entry key="app/src/main/res/menu/search_menu.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.1859375" />
       </map>
     </option>
   </component>

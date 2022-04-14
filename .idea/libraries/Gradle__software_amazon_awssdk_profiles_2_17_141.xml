@@ -1,15 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: software.amazon.awssdk:profiles:2.17.141">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/profiles/2.17.141/b1319ead30db98ff6f2e880b7557e2fb34ebe74d/profiles-2.17.141.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/profiles/2.17.141/b1319ead30db98ff6f2e880b7557e2fb34ebe74d/profiles-2.17.141.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/profiles/2.17.141/98275ffb55165fb07f8b644255e5e1ad9e418f5e/profiles-2.17.141-javadoc.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/profiles/2.17.141/98275ffb55165fb07f8b644255e5e1ad9e418f5e/profiles-2.17.141-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/software.amazon.awssdk/profiles/2.17.141/393c0b91fb181fc9aad4f355c885f8f3bd90fd4b/profiles-2.17.141-sources.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/software.amazon.awssdk/profiles/2.17.141/393c0b91fb181fc9aad4f355c885f8f3bd90fd4b/profiles-2.17.141-sources.jar!/" />
     </SOURCES>
   </library>

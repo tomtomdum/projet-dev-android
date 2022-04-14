@@ -32,16 +32,15 @@
 
             <Button
                 android:id="@+id/btn_search_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="@dimen/tv_title_3_size"
                 android:background="@drawable/button_search"
-
-            android:text="@string/order"
-
+                style="?android:attr/borderlessButtonStyle"
+                android:text="@string/order"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                style="?android:attr/borderlessButtonStyle"
+
             />
 
         <ImageView

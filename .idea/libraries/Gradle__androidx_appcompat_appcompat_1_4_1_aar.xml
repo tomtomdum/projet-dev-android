@@ -1,20 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.appcompat:appcompat:1.4.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/annotations.zip!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9ccb422317a6b8f2afb79e08fc72c10b/transformed/appcompat-1.4.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/res" />
-      <root url="file://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d691b2c4cce06c2384dc4faad7b36233/transformed/appcompat-1.4.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9ccb422317a6b8f2afb79e08fc72c10b/transformed/appcompat-1.4.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9ccb422317a6b8f2afb79e08fc72c10b/transformed/appcompat-1.4.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9ccb422317a6b8f2afb79e08fc72c10b/transformed/appcompat-1.4.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../../Logiciels/android_res/gradle-7.2/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.4.1/f9e48179ea0c6ac0080a277b9383f74523f56aa2/appcompat-1.4.1-sources.jar!/" />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.4.1/f9e48179ea0c6ac0080a277b9383f74523f56aa2/appcompat-1.4.1-sources.jar!/" />
     </SOURCES>
   </library>
