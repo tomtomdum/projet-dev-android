@@ -36,5 +36,11 @@ public class OrderRepository {
         t.start();
     }
 
-    public void delete(Order... orders){ orderDAO.delete(orders); }
+    public void delete(Runnable completion,Order... orders){
+        Thread t =  new Thread(() -> {
+            orderDAO.delete(orders);
+            completion.run();
+        });
+        t.start();
+    }
 }
