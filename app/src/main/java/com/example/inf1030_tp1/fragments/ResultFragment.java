@@ -1,7 +1,10 @@
 package com.example.inf1030_tp1.fragments;
 
+import android.app.NotificationManager;
 import android.os.Bundle;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.inf1030_tp1.Adapters.ResultAdapter;
 import com.example.inf1030_tp1.Models.Pharmacy;
+import com.example.inf1030_tp1.Notifications.NotificationHelper;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.utils.Utils;
 
@@ -34,6 +38,7 @@ public class ResultFragment extends Fragment {
     private ResultAdapter mResultAdapter;
     private List<Pharmacy> mPharmacyList;
     TextView txtOrderName;
+    private NotificationHelper notifHelper;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -68,6 +73,8 @@ public class ResultFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        notifHelper = new NotificationHelper(getActivity());
+        notifHelper.createNotificationChannel(); // ca va ici ou dans le main ??
     }
 
     @Override
@@ -94,11 +101,12 @@ public class ResultFragment extends Fragment {
                     // Else, display the next question.
                     for(int i = 0; i < 3; i++){
                         mResultAdapter.setPharmacyList(new Pharmacy("Phamaprix "  + i));
+                        notifHelper.sendResultNotification(new Pharmacy("Phamaprix "  + i));
+
                     }
                     mView.findViewById(R.id.progressBar).setVisibility(View.GONE);
                 }
             }, 2_000);
-
 
        // mView.findViewById(R.id.progressBar).setVisibility(View.GONE);
         //Add order in dataBase

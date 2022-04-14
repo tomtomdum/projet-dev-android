@@ -15,5 +15,8 @@
     <string name="welcome">welcome</string>
 
     <string name="order">Commander</string>
+    <string name="request_channel">Une requete est remplise</string>
+    <string name="completed_Request" >a votre commande recherchés</string>
+    <string name="request_channel_desc" >Notifications de requetes</string>
 
 </resources>
