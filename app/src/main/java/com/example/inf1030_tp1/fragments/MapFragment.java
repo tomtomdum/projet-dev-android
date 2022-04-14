@@ -13,14 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.inf1030_tp1.Data.Clients.APIWeatherService;
-import com.example.inf1030_tp1.Data.Clients.RetrofitClient;
 import com.example.inf1030_tp1.Models.Pharmacy;
 import com.example.inf1030_tp1.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -35,9 +32,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-
-import okhttp3.Request;
-import retrofit2.Retrofit;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
@@ -78,15 +72,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         pharmacies = initPharmacies();
 //        https://api.openweathermap.org/data/2.5/
-        Retrofit retrofit = RetrofitClient.getWeatherClient("https://api.openweathermap.org/data/2.5/");
-
-        APIWeatherService apiWeatherService = retrofit.create(APIWeatherService.class);
+//        Retrofit retrofit = RetrofitClient.getWeatherClient("https://api.openweathermap.org/data/2.5/");
+//        APIWeatherService apiWeatherService = retrofit.create(APIWeatherService.class);
 //        apiWeatherService.weather(46.3348999f, -72.5909f);
-        Request jsonObject = apiWeatherService.weather(46.3348999f, -72.5909f, "a2bc2057f54bd49705a6d941ef1c5685").request();
-        Log.i("info", "json response: "+ jsonObject);
-
-
-        Log.i("info", "THIS IS A TESTT "+ apiWeatherService.weather(46.3348999f, -72.5909f, "a2bc2057f54bd49705a6d941ef1c5685"));
+//        Request jsonObject = apiWeatherService.weather(46.3348999f, -72.5909f, "a2bc2057f54bd49705a6d941ef1c5685").request();
+//        Log.i("info", "json response: "+ jsonObject);
+//        Log.i("info", "THIS IS A TESTT "+ apiWeatherService.weather(46.3348999f, -72.5909f, "a2bc2057f54bd49705a6d941ef1c5685"));
     }
 
     @Override
@@ -119,14 +110,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mFusedLocationProviderClient.getLastLocation()
                 .addOnSuccessListener((Activity) requireContext(), location -> {
                     if (location != null) {
-                        Log.i("info", "TestTTTT "+location);
                         LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                        Log.i("info", "current location "+currentLocation);
                         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12));
                         addPharmacyMarkers();
-                    }
-                    else{
-                        Log.i("info", "vide tabarnakkkkk ");
                     }
                 });
     }

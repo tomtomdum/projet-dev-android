@@ -21,10 +21,12 @@ import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.ViewModels.ClientViewModel;
 import com.example.inf1030_tp1.ViewModels.ConversationViewModel;
 import com.example.inf1030_tp1.ViewModels.MessageViewModel;
+import com.example.inf1030_tp1.databinding.FragmentConversationListBinding;
 
 import java.util.ArrayList;
 
 public class ConversationListFragment extends Fragment {
+    private FragmentConversationListBinding fragmentConversationListBinding;
     private ConversationAdapter conversationAdapter;
     private ConversationViewModel conversationViewModel;
     private RecyclerView mRecyclerView;
@@ -41,18 +43,18 @@ public class ConversationListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mRecyclerView = view.findViewById(R.id.recycler_view_conversation_list);
-        mConversations = new ArrayList<>();
-        conversationAdapter = new ConversationAdapter(getActivity(), mConversations, conversationId -> {
-            MessageListFragment messageListFragment = new MessageListFragment();
-            messageListFragment.setConversationId(conversationId);
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .addToBackStack(String.valueOf(R.layout.fragment_conversation_list)) // à vérifier
-                    .replace(R.id.fragment_container_main, messageListFragment)
-                    .commit();
-        });
-        mRecyclerView.setAdapter(conversationAdapter);
+//        mRecyclerView = view.findViewById(R.id.recycler_view_conversation_list);
+//        mConversations = new ArrayList<>();
+//        conversationAdapter = new ConversationAdapter(getActivity(), mConversations, conversationId -> {
+//            MessageListFragment messageListFragment = new MessageListFragment();
+//            messageListFragment.setConversationId(conversationId);
+//            getActivity().getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .addToBackStack(String.valueOf(R.layout.fragment_conversation_list)) // à vérifier
+//                    .replace(R.id.fragment_container_main, messageListFragment)
+//                    .commit();
+//        });
+//        mRecyclerView.setAdapter(conversationAdapter);
 
 //
 //        Client client = new Client("Philippe", "Baillargeon");
@@ -64,20 +66,18 @@ public class ConversationListFragment extends Fragment {
 //        conversationViewModel.save(conversation, () -> {
 //            Log.i("info", "conversation créée");
 //        });
-
-//        Message message = new Message("Ceci est un message de réponse.", "2", "669b3617-8c09-40a6-b303-db7c04bdaf5e");
+//
+//        Message message = new Message("Ceci est un message de réponse.", "2", conversation.getId());
 //        MessageViewModel messageViewModel = new ViewModelProvider(this).get(MessageViewModel.class);
 //        messageViewModel.save(message, () -> Log.i("info", "message successfully sent"));
 
 
-        conversationViewModel = new ViewModelProvider(this).get(ConversationViewModel.class);
-        conversationViewModel.liveAll().observe(getActivity(), conversations -> {
-            Log.i("info", "BOUUUUYAAAAA "+ conversations.size());
-            mConversations.addAll(conversations);
-            conversationAdapter.setConversations(mConversations);
-            Log.i("info", "OOOOOOOOIIIIIIII "+ conversationAdapter);
-//            mRecyclerView.setAdapter(conversationAdapter);
-        });
+//        conversationViewModel = new ViewModelProvider(this).get(ConversationViewModel.class);
+//        conversationViewModel.liveAll().observe(getActivity(), conversations -> {
+//            mConversations.addAll(conversations);
+//            conversationAdapter.setConversations(mConversations);
+////            mRecyclerView.setAdapter(conversationAdapter);
+//        });
     }
 
     @Override
@@ -85,6 +85,29 @@ public class ConversationListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_conversation_list, container, false);
+        fragmentConversationListBinding = FragmentConversationListBinding.bind(view);
+        mRecyclerView = fragmentConversationListBinding.recyclerViewConversationList;
+        mConversations = new ArrayList<>();
+        conversationAdapter = new ConversationAdapter(getActivity(), mConversations, conversationId -> {
+            MessageListFragment messageListFragment = new MessageListFragment();
+            messageListFragment.setConversationId(conversationId);
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(String.valueOf(R.layout.fragment_conversation_list)) // à vérifier
+                    .replace(R.id.fragment_container_main, messageListFragment)
+                    .commit();
+        });
+        mRecyclerView.setAdapter(conversationAdapter);
+        conversationViewModel = new ViewModelProvider(this).get(ConversationViewModel.class);
+        conversationViewModel.liveAll().observe(getViewLifecycleOwner(), conversations -> {
+            ArrayList<Conversation> conversations1 = new ArrayList<>(conversations);
+            conversationAdapter.updateList(conversations1);
+//            mConversations.addAll(conversations);
+//            conversationAdapter.setConversations(mConversations);
+            mRecyclerView.setAdapter(conversationAdapter);
+        });
+
+
         return view;
     }
 }

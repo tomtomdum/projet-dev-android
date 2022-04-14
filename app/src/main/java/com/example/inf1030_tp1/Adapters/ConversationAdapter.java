@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.inf1030_tp1.Models.Conversation;
+import com.example.inf1030_tp1.Models.Message;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.MessageListFragment;
 import com.example.inf1030_tp1.fragments.utils.OnClickConversation;
@@ -49,6 +50,12 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             String conversationId = conversations.size() > 0 ? conversations.get(position).getId() : "";
             onClickItem.onClickConversation(conversationId);
         });
+    }
+
+    public void updateList(ArrayList<Conversation> conversations){
+        this.conversations.clear();
+        this.conversations.addAll(conversations);
+        this.notifyDataSetChanged();
     }
 
     @Override

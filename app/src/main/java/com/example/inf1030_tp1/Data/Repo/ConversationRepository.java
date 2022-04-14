@@ -7,7 +7,6 @@ import androidx.lifecycle.LiveData;
 import com.example.inf1030_tp1.Data.DAO.ConversationDAO;
 import com.example.inf1030_tp1.MainApp;
 import com.example.inf1030_tp1.Models.Conversation;
-import com.example.inf1030_tp1.Models.Drug;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class ConversationRepository {
 
     public ConversationRepository(Application app){
         this.app = (MainApp) app;
-        mConversationDAO = this.app.getDb().ConversationDAO();
+        mConversationDAO = this.app.getDb().conversationDAO();
     }
 
     public LiveData<List<Conversation>> getAllConversations(){

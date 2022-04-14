@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.inf1030_tp1.Models.Client;
 import com.example.inf1030_tp1.Models.Message;
 import com.example.inf1030_tp1.R;
 
@@ -37,8 +36,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = viewType == MESSAGE_DROITE ? inflater.inflate(R.layout.proto_message_droit, parent, false)
-                : inflater.inflate(R.layout.proto_message_gauche, parent, false);
+        View view = viewType == MESSAGE_DROITE ? inflater.inflate(R.layout.proto_message_right, parent, false)
+                : inflater.inflate(R.layout.proto_message_left, parent, false);
         return new ViewHolder(view);
 
     }

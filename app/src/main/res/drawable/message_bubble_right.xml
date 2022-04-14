@@ -2,10 +2,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <rotate
-            android:fromDegrees="35"
+            android:fromDegrees="55"
             android:toDegrees="0"
             android:pivotX="0%"
-            android:pivotY="100%"
+            android:pivotY="30%"
             >
             <shape android:shape="rectangle">
 
@@ -16,15 +16,13 @@
             </shape>
         </rotate>
     </item>
-    <item android:left="10dp">
-        <shape android:shape="rectangle">
-            <corners android:radius="30dp" />
-            <solid android:color="@color/primary" />
-            <stroke android:width="5dip" android:color="@color/primary"/>
-            <padding
-                android:left="80dp" />
-        </shape>
-    </item>
+<!--    <item android:right="10dp">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <corners android:radius="30dp" />-->
+<!--            <solid android:color="@color/primary" />-->
+<!--            <stroke android:width="5dip" android:color="@color/primary"/>-->
+<!--            <padding-->
+<!--                android:left="80dp" />-->
+<!--        </shape>-->
+<!--    </item>-->
 </layer-list>
-
-

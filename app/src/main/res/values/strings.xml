@@ -7,7 +7,7 @@
     <string name="client">client</string>
     <string name="pharmacist">pharmacist</string>
     <string name="signin">Sign in</string>
-    <string name="password">password</string>
+    <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="sign_up_text">Don\'t have an account?</string>
     <string name="sign_up">Sign up</string>
@@ -17,6 +17,20 @@
     <string name="welcome_description">Find drugs easily and fast</string>
     <string name="welcome">welcome</string>
     <string name="order">Order</string>
-    <string name="conversation_title" translatable="false">"Conversation: %1s"</string>
-
+    <string name="conversation_title" translatable="false">Conversation: %1s</string>
+    <string name="telephone_number" translatable="false">Telephone number</string>
+    <string name="create_your_account">Create your account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="address">Address</string>
+    <string name="next">Next</string>
+    <string name="username">Username</string>
+    <string name="create">Create</string>
+    <string-array name="pharmacies">
+        <item>Pharmaprix</item>
+        <item>Uniprix</item>
+        <item>Proxim</item>
+        <item>Accès Pharma</item>
+        <item>Jean Coutu</item>
+    </string-array>
 </resources>

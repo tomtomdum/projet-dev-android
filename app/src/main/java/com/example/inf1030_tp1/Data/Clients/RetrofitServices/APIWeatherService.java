@@ -1,4 +1,4 @@
-package com.example.inf1030_tp1.Data.Clients;
+package com.example.inf1030_tp1.Data.Clients.RetrofitServices;
 
 import org.json.JSONObject;
 

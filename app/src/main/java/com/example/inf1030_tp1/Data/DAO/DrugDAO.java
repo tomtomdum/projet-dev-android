@@ -19,7 +19,7 @@ public interface DrugDAO {
     @Query("SELECT * FROM drug")
     LiveData<List<Drug>> getAll();
 
-    @Query("SELECT * FROM drug WHERE drugNumber = :id")
+    @Query("SELECT * FROM drug WHERE drugnumber = :id")
     LiveData<Drug> get(long id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

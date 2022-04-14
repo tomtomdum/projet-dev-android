@@ -1,4 +1,4 @@
-INSERT INTO drug (catnumber,drugnumber, dci,dosage,form,reference,cases,posts,centers,eps1,eps2, eps3,createdBy,lastUpdatedBy,status )
+INSERT INTO drug (catnumber,drugnumber, dci,dosage,form,reference,cases,posts,centers,eps1,eps2, eps3,createdBy,lastUpdatedBy,status)
 VALUES
 (201,1001,'Amikacine','1g','injectable','Amiklin',0,0,0,0,1,1,'minsas','minsas',1),
 (201,1002,'Amoxicilline','500mg','gélule','Clamoxyl',0,1,1,1,1,1,'minsas','minsas',1),

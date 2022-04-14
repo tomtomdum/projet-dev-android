@@ -17,11 +17,13 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.inf1030_tp1.Adapters.DrugAdapter;
+import com.example.inf1030_tp1.Adapters.MessageAdapter;
 import com.example.inf1030_tp1.Adapters.OrderListAdapter;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.ViewModels.DrugViewModel;
+import com.example.inf1030_tp1.databinding.FragmentAddOrderBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +40,10 @@ public class AddOrderFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private FragmentAddOrderBinding fragmentAddOrderBinding;
+    private RecyclerView recyclerView;
     private DrugViewModel viewModel;
     private DrugAdapter mDrugListAdapter;
-    private ArrayList<Drug> drugList = new ArrayList<>();
     private SearchView searchView;
     private List<Order> orderList;
     private View mView;
@@ -83,29 +86,24 @@ public class AddOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
+        mView =  inflater.inflate(R.layout.fragment_add_order, container, false);
+        fragmentAddOrderBinding = FragmentAddOrderBinding.bind(mView);
+        recyclerView = fragmentAddOrderBinding.recyclerViewDrugList;
+        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
+        viewModel.liveAll().observe(getActivity(), drugs -> {
+            mDrugListAdapter = new DrugAdapter(getActivity(), (ArrayList<Drug>) drugs, drug -> {
+                //Todo implementer une action faisant la selection
+            });
+            recyclerView.setAdapter(mDrugListAdapter);
+        });
         setUpSearchView();
-
-
-
         return mView;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView recyclerView = mView.findViewById(R.id.recycler_view_drug_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
-        viewModel = new ViewModelProvider(this).get(DrugViewModel.class);
-        viewModel.liveAll().observe(getActivity(), drugs -> {
-            mDrugListAdapter = new DrugAdapter(getActivity(), (ArrayList<Drug>) drugs, drug -> {
-                //Todo implementer une action faisant la selection
-            });
-            Log.i("info", "testfffff: "+ mDrugListAdapter.getItemCount());
-            recyclerView.setAdapter(mDrugListAdapter);
-        });
     }
 
     private void setUpSearchView(){

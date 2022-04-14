@@ -1,6 +1,8 @@
 package com.example.inf1030_tp1.fragments.welcome;
 
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,13 +11,17 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.inf1030_tp1.Models.Client;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.Activities.MainActivity;
 
+import com.example.inf1030_tp1.fragments.CreateClientFragment;
+import com.example.inf1030_tp1.fragments.CreatePharmacistFragment;
 import com.example.inf1030_tp1.fragments.utils.Utils;
 
 
@@ -71,20 +77,37 @@ public class TypeUserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mView = inflater.inflate(R.layout.fragment_type_user, container, false);
-        mView.findViewById(R.id.btn_client).setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View view) {
-                SharedPreferences preferences = getActivity().getSharedPreferences(Utils.SHARED_PREF_USER_INFO, Context.MODE_PRIVATE);
-                preferences.edit()
-                .putString(Utils.SHARED_PREF_USER_TYPE_NAME, "client")
-                .apply();
-
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-            }
+        mView.findViewById(R.id.btn_client).setOnClickListener(view -> {
+            SharedPreferences preferences = getActivity().getSharedPreferences(Utils.SHARED_PREF_USER_INFO, MODE_PRIVATE);
+            preferences.edit()
+            .putString(Utils.SHARED_PREF_USER_TYPE_NAME, "client")
+            .apply();
+            createUser();
+        });
+        mView.findViewById(R.id.btn_pharma).setOnClickListener(view -> {
+            SharedPreferences preferences = getActivity().getSharedPreferences(Utils.SHARED_PREF_USER_INFO, MODE_PRIVATE);
+            preferences.edit()
+                    .putString(Utils.SHARED_PREF_USER_TYPE_NAME, "pharmacist")
+                    .apply();
+            createUser();
         });
         return mView;
+    }
+
+    public void createUser(){
+       String userType = getActivity().getSharedPreferences(Utils.SHARED_PREF_USER_INFO, MODE_PRIVATE).getString(Utils.SHARED_PREF_USER_TYPE_NAME,null);
+       if(userType.equals("client")){
+           getActivity().getSupportFragmentManager()
+                   .beginTransaction()
+                   .addToBackStack(null)
+                   .replace(R.id.fragment_container, new CreateClientFragment())
+                   .commit();
+       }else if(userType.equals("pharmacist")){
+           getActivity().getSupportFragmentManager()
+                   .beginTransaction()
+                   .addToBackStack(null)
+                   .replace(R.id.fragment_container, new CreatePharmacistFragment())
+                   .commit();
+       }
     }
 }

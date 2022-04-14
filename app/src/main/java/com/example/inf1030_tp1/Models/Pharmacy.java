@@ -13,7 +13,6 @@ public class Pharmacy {
     @PrimaryKey
     private String id = UUID.randomUUID().toString();
     private String name;
-
     private String street;
     private String municipality;
     private String province;

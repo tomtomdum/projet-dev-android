@@ -4,11 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.lang.annotation.Inherited;
 import java.util.UUID;
 
 @Entity
-public class Client {
+public class Client implements Serializable {
 
     @NonNull
     @PrimaryKey
@@ -21,7 +22,6 @@ public class Client {
     public Client(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-
     }
 
     @NonNull

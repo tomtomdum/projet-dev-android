@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.inf1030_tp1.Models.Drug;
+import com.example.inf1030_tp1.Models.Message;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.R;
 import com.example.inf1030_tp1.fragments.HomeFragment;
@@ -45,7 +46,12 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.ViewHolder> im
          */
         Utils.sOrder = order;
         notifyDataSetChanged();
+    }
 
+    public void updateList(ArrayList<Drug> drugs){
+        this.drugList.clear();
+        this.drugList.addAll(drugs);
+        this.notifyDataSetChanged();
     }
 
     // inflates the row layout from xml when needed
