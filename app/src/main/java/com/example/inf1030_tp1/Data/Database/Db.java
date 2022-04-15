@@ -16,6 +16,7 @@ import com.example.inf1030_tp1.Data.DAO.ClientDAO;
 import com.example.inf1030_tp1.Data.DAO.ConversationDAO;
 import com.example.inf1030_tp1.Data.DAO.DrugDAO;
 import com.example.inf1030_tp1.Data.DAO.MessageDAO;
+import com.example.inf1030_tp1.Data.DAO.OrderDrugsDAO;
 import com.example.inf1030_tp1.Data.DAO.PharmacistDAO;
 import com.example.inf1030_tp1.Data.DAO.PharmacyDAO;
 import com.example.inf1030_tp1.Data.DAO.UserDAO;
@@ -26,6 +27,7 @@ import com.example.inf1030_tp1.Models.Conversation;
 import com.example.inf1030_tp1.Models.Drug;
 import com.example.inf1030_tp1.Models.Order;
 import com.example.inf1030_tp1.Models.Message;
+import com.example.inf1030_tp1.Models.OrderDrugs;
 import com.example.inf1030_tp1.Models.Pharmacist;
 import com.example.inf1030_tp1.Models.Pharmacy;
 import com.example.inf1030_tp1.Models.User;
@@ -44,6 +46,7 @@ import java.util.concurrent.Executors;
             Pharmacist.class,
             Pharmacy.class,
             Order.class,
+            OrderDrugs.class,
     },
         version = 3
 )
@@ -59,6 +62,7 @@ public abstract class Db extends RoomDatabase {
     public abstract PharmacistDAO pharmacistDAO();
     public abstract PharmacyDAO pharmacyDAO();
     public abstract OrderDAO orderDAO();
+    public abstract OrderDrugsDAO orderDrugsDAO();
 
     public static synchronized Db instance(Context context){
         if(instance == null) {

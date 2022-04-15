@@ -37,5 +37,11 @@ public class ConversationRepository {
         t.start();
     }
 
-    public void delete(Conversation... conversations){ mConversationDAO.delete(conversations); }
+    public void delete(Conversation... conversations){
+
+        Thread t = new Thread(() -> {
+            mConversationDAO.delete(conversations);
+        });
+        t.start();
+         }
 }

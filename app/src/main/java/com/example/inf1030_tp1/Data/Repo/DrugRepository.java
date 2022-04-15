@@ -37,5 +37,10 @@ public class DrugRepository {
         t.start();
     }
 
-    public void delete(Drug... drugs){ drugDao.delete(drugs); }
+    public void delete(Runnable completion,Drug... drugs){
+        Thread t = new Thread(() -> {
+            drugDao.delete(drugs);
+        });
+        t.start();
+         }
 }
