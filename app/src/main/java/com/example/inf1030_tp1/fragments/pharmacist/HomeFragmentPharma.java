@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.inf1030_tp1.Adapters.OrderListAdapter;
 import com.example.inf1030_tp1.Models.Drug;
@@ -75,6 +76,8 @@ public class HomeFragmentPharma extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_home_pharma, container, false);
+        TextView textView = getActivity().findViewById(R.id.page_title);
+        textView.setText("HOME");
         return mView;
     }
 

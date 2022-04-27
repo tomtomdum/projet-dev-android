@@ -87,6 +87,17 @@ public class OrderFragmentPharma extends Fragment {
         txtOrderName = mView.findViewById(R.id.order_name_result_fragment_pharma);
         txtOrderName.setText(order.getmOrderName().toLowerCase().toString());
 
+        TextView textView = getActivity().findViewById(R.id.page_title);
+        textView.setText("ORDER");
+
+        getActivity().findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // getActivity().finish();
+                getActivity().onBackPressed();
+
+            }
+        });
         initRecyclerView(mView);
         return mView;
     }
