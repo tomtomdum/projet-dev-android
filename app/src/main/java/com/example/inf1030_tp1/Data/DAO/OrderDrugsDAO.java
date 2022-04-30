@@ -16,8 +16,8 @@ import java.util.Map;
 
 @Dao
 public interface OrderDrugsDAO {
-    @Query("SELECT * FROM `OrderDrugs`")
-    LiveData<Map<Drug, Integer>> getAll();
+//    @Query("SELECT * FROM `OrderDrugs`")
+//    LiveData<Map<Drug, Integer>> getAll();
 
     @Query("SELECT * FROM 'OrderDrugs' WHERE id = :id")
     LiveData<OrderDrugs> get(long id);
