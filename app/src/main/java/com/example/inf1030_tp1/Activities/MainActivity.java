@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.toolbar_menu_cart:
-      //CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(HomeFragment.orders.size()-1));
+                //CartFragment cartFragment = new CartFragment(HomeFragment.orders.get(HomeFragment.orders.size()-1));
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container_main,new CartFragment()).commit();
                 return true;
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new ProfilFragment();
                         break;
                     default:
-                         selectedFragment = new HomeFragment();
+                        selectedFragment = new HomeFragment();
 
                 }
                 // It will help to replace the
