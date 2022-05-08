@@ -1,9 +1,11 @@
-
 # TP android
 FAIT PAR:
 Tommy Dumont
 Philippe Baillargeon
 Albert-Mary Dorcé
+
+## attention
+finalement la map n'affiche pas les marquers des pharmacies à moins d'etre sur un téléphone. Cela ne marche pas sur un émulateur.
 
 ## Remise du jalon 2
 
